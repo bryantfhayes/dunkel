@@ -12,7 +12,7 @@ func update_overlay(value):
 func _draw():
 	if grid_size == 0:
 		return
-	for i in 32:
+	for i in 30:
 		draw_line(Vector2(i * SCREEN_SIZE.x, 0), Vector2(i * SCREEN_SIZE.x, 32 * SCREEN_SIZE.x), Color("020202"), grid_size)
 		draw_line(Vector2(0, i * SCREEN_SIZE.y), Vector2(32 * SCREEN_SIZE.y, i * SCREEN_SIZE.y), Color("020202"), grid_size)
 		
