@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="New Game Project"
+config/name="dunkel"
 run/main_scene="res://src/main/Game.tscn"
 config/icon="res://assets/tiles/icon.png"
 
@@ -23,6 +23,10 @@ config/icon="res://assets/tiles/icon.png"
 
 window/size/width=960
 window/size/height=640
+
+[editor_plugins]
+
+enabled=PoolStringArray( "gut" )
 
 [input]
 
@@ -47,7 +51,5 @@ move_right={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
