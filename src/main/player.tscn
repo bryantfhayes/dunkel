@@ -1,9 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/main/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/tiles/player.png" type="Texture" id=2]
-
-
+[ext_resource path="res://src/main/spotlight.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.7748, 15.7641 )
@@ -16,3 +15,9 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="light_0" parent="." instance=ExtResource( 3 )]
+shadow_enabled = true
+shadow_gradient_length = 68.0
+shadow_filter = 4
+shadow_filter_smooth = 32.0
