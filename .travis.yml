@@ -31,6 +31,7 @@ before_deploy:
 - zip -j "${GAME_NAME}-linux.zip"   output/linux/*
 - zip -j "${GAME_NAME}-windows.zip" output/windows/*
 - zip -j "${GAME_NAME}-mac.zip" output/mac/*
+- zip -j "${GAME_NAME}-html5.zip" output/html5/*
 
 deploy:
 # The following block is responsible to upload the zip files
@@ -43,6 +44,7 @@ deploy:
     - "${GAME_NAME}-linux.zip"
     - "${GAME_NAME}-windows.zip"
     - "${GAME_NAME}-mac.zip"
+    - "${GAME_NAME}-html5.zip"
   on:
     # Create GitHub Releases for new git tags
     # regardless of the branch.
