@@ -8,8 +8,8 @@ var can_wall_jump = true
  
 # Lateral movement adjustments
 export var MAX_SPEED = 500
-export var ACCELERATION = 40
-export var DECELERATION = 60
+export var ACCELERATION = 30
+export var DECELERATION = 70
 
 # Jump adjustments
 export var JUMP_FORCE = 800

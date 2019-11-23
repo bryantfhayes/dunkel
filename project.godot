@@ -19,6 +19,11 @@ config/name="dunkel"
 run/main_scene="res://src/main/game.tscn"
 config/icon="res://assets/tiles/icon.png"
 
+[autoload]
+
+GameManager="*res://src/main/game_manager.gd"
+PlayerController="*res://src/main/player_controller.gd"
+
 [display]
 
 window/size/width=960
