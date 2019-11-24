@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+ 
 var input_direction = 0
 var direction = 0
 var speed_x = 0
@@ -17,41 +17,18 @@ export var GRAVITY = 2000
 export var FALL_MULTIPLIER = 2
 export var MIN_JUMP_HEIGHT = -300
 
-export var torch_enabled = true
+var player_nearby = false
 
 func _ready():
 	set_process(true)
 	set_process_input(true)
-	$torch.visible = torch_enabled
 
- 
 func _input(event):
-	if is_on_floor():
-		can_wall_jump = true
-	
-	# Pressed jump button
-	if event.is_action_pressed("jump") and is_on_floor():
-		velocity.y = -JUMP_FORCE
-		
-	# Cancel jump by releasing early (only works when you are going up!
-	if event.is_action_released("jump") and velocity.y < MIN_JUMP_HEIGHT:
-		velocity.y = MIN_JUMP_HEIGHT
-		
-	if event.is_action_pressed("jump") and is_on_wall() and is_on_floor() == false and can_wall_jump:
-		velocity.y = -JUMP_FORCE
-		can_wall_jump = false
+	if event.is_action_pressed("ui_accept") and player_nearby:
+		GameManager.show_message(self.get_parent(), [{"message" : "Hello there", "speaker" : "npc"}])
 
 func _physics_process(delta):
-	# Handle user input
-	if input_direction:
-		direction = input_direction
-   
-	if Input.is_action_pressed("move_left"):
-		input_direction = -1
-	elif Input.is_action_pressed("move_right"):
-		input_direction = 1
-	else:
-		input_direction = 0
+	input_direction = 0
    
 	# Apply user movement
 	if input_direction == - direction:
@@ -70,3 +47,11 @@ func _physics_process(delta):
 	   
 	velocity.x = speed_x * direction
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func _on_event_area_body_entered(body):
+	if body.get_name() == "player":
+		player_nearby = true
+
+func _on_event_area_body_exited(body):
+	if body.get_name() == "player":
+		player_nearby = false

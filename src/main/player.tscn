@@ -7,16 +7,17 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.7748, 15.7641 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collision_box" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="light_0" parent="." instance=ExtResource( 3 )]
+[node name="torch" parent="." instance=ExtResource( 3 )]
+visible = false
 shadow_enabled = true
 shadow_gradient_length = 68.0
 shadow_filter = 4
