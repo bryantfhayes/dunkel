@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="dunkel"
-run/main_scene="res://src/main/game.tscn"
+run/main_scene="res://src/main/main_menu.tscn"
 config/icon="res://assets/tiles/icon.png"
 
 [autoload]
