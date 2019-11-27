@@ -40,6 +40,30 @@ func _input(event):
 	if event.is_action_pressed("jump") and is_on_wall() and is_on_floor() == false and can_wall_jump:
 		velocity.y = -JUMP_FORCE
 		can_wall_jump = false
+	
+	if event.is_action_pressed("attack"):
+		# Attack!
+		print("Attacking!")
+		attack()
+
+func attack():
+	var attack_node = get_node("Area2D")
+	var sprite_node = attack_node.get_child(0)
+	sprite_node.visible = true
+	print(attack_node)
+	var animation1 = attack_node.get_child(0).get_child(0)
+	print(animation1)
+	animation1.play("stab")
+	var animation2 = attack_node.get_child(1).get_child(0)
+	print(animation2)
+	animation2.play("stab")
+
+func attack_done():
+	var attack_node = get_node("Area2D")
+	var sprite_node = attack_node.get_child(0)
+	sprite_node.visible = false
+	# Attack over
+	print("Attack done!")
 
 func _physics_process(delta):
 	# Handle user input
@@ -70,3 +94,10 @@ func _physics_process(delta):
 	   
 	velocity.x = speed_x * direction
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func _on_AnimationPlayer2_animation_finished(anim_name):
+	var attack_node = get_node("Area2D")
+	var sprite_node = attack_node.get_child(0)
+	sprite_node.visible = false
+	# Attack over
+	print("Attack done!")

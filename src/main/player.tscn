@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/main/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/tiles/player.png" type="Texture" id=2]
@@ -6,6 +6,41 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.7748, 15.7641 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.0169, 3.78756 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "stab"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00884509, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 30, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "stab"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00884509, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 30, 0 ), Vector2( 0, 0 ) ]
+}
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -22,3 +57,32 @@ shadow_enabled = true
 shadow_gradient_length = 68.0
 shadow_filter = 4
 shadow_filter_smooth = 32.0
+
+[node name="Attack" type="CollisionShape2D" parent="."]
+position = Vector2( 36.5656, -0.716965 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="sprite2" type="Sprite" parent="Attack"]
+visible = false
+position = Vector2( -1.35899e-05, -0.179249 )
+scale = Vector2( 1.29127, 0.294231 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="sprite3" type="Sprite" parent="Area2D"]
+visible = false
+scale = Vector2( 1.29127, 0.294231 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Area2D/sprite3"]
+anims/stab = SubResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -9.37897, 2.3067, 46.1863, 13.7783, 63.7522, 4.09913, 46.1863, -5.2215 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/CollisionPolygon2D"]
+anims/stab = SubResource( 3 )
+[connection signal="animation_finished" from="Area2D/sprite3/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]
+[connection signal="animation_finished" from="Area2D/sprite3/AnimationPlayer2" to="." method="attack_done"]
