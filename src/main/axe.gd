@@ -10,6 +10,13 @@ onready var sprite = get_node("sprite3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+	#pass # Replace with function body.
+
+func do_the_thing():
+	print("do the thing?")
+	print(tween)
+	print(sprite)
 	print("Ready tween!")
 	print(sprite.position)
 	print(sprite.position.x)
@@ -28,14 +35,19 @@ func _ready():
 	tween.interpolate_property(sprite, "rotation_degrees", 
     	0, 1080, 0.6, 
     	Tween.TRANS_LINEAR, Tween.EASE_IN)
-
-	#pass # Replace with function body.
-
-func do_the_thing():
-	print("do the thing?")
-	print(tween)
-	print(sprite)
+	sprite.visible = true	
 	tween.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Tween_tween_completed(object, key):
+	sprite.visible = false
+	pass # Replace with function body.
+
+
+func _on_Tween_tween_all_completed():
+	#sprite.visible = false
+	sprite.position = get_parent().get_parent().position
+	pass # Replace with function body.

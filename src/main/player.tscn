@@ -73,6 +73,7 @@ anims/stab = SubResource( 2 )
 script = ExtResource( 4 )
 
 [node name="sprite3" type="Sprite" parent="axe"]
+visible = false
 position = Vector2( 35.1316, -3.04713 )
 scale = Vector2( 0.596704, 0.731135 )
 texture = ExtResource( 2 )
@@ -83,3 +84,4 @@ script = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="axe"]
 [connection signal="animation_finished" from="stab/CollisionPolygon2D/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="tween_all_completed" from="axe/Tween" to="axe" method="_on_Tween_tween_all_completed"]
