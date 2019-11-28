@@ -5,6 +5,8 @@ var direction = 0
 var speed_x = 0
 var velocity = Vector2()
 var can_wall_jump = true
+var selected_attack = 1
+var attacks = ["stab", "axe"]
  
 # Lateral movement adjustments
 export var MAX_SPEED = 500
@@ -43,20 +45,22 @@ func _input(event):
 	
 	if event.is_action_pressed("attack"):
 		# Attack!
+		var attack_index = selected_attack
 		print("Attacking!")
-		attack()
+		print(attack_index)
+		attack(attack_index)
 
-func attack():
-	var attack_node = get_node("Area2D")
-	var sprite_node = attack_node.get_child(0)
-	sprite_node.visible = true
+func attack(attack_index):
+	print(attacks)
+	print(attack_index)
+	print(attacks[attack_index])
+	var attack_node = get_node(attacks[attack_index])
 	print(attack_node)
-	var animation1 = attack_node.get_child(0).get_child(0)
-	print(animation1)
-	animation1.play("stab")
-	var animation2 = attack_node.get_child(1).get_child(0)
-	print(animation2)
-	animation2.play("stab")
+	#var animation1 = attack_node.get_child(0).get_child(1)
+	#print(animation1)
+	#animation1.play("stab")
+	#attack_node.get_child(0).get_child(0).visible = true
+	attack_node.do_the_thing()
 
 func attack_done():
 	var attack_node = get_node("Area2D")
@@ -95,9 +99,10 @@ func _physics_process(delta):
 	velocity.x = speed_x * direction
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
-func _on_AnimationPlayer2_animation_finished(anim_name):
-	var attack_node = get_node("Area2D")
-	var sprite_node = attack_node.get_child(0)
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	var attack_node = get_node(attacks[selected_attack])
+	var sprite_node = attack_node.get_child(0).get_child(0)
 	sprite_node.visible = false
 	# Attack over
 	print("Attack done!")

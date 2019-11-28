@@ -3,28 +3,10 @@
 [ext_resource path="res://src/main/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/tiles/player.png" type="Texture" id=2]
 [ext_resource path="res://src/main/spotlight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/main/axe.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.7748, 15.7641 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20.0169, 3.78756 )
-
-[sub_resource type="Animation" id=4]
-resource_name = "stab"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.00884509, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 30, 0 ), Vector2( 0, 0 ) ]
-}
 
 [sub_resource type="Animation" id=3]
 resource_name = "stab"
@@ -42,6 +24,22 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 30, 0 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="GDScript" id=4]
+script/source = "extends CollisionPolygon2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -58,31 +56,30 @@ shadow_gradient_length = 68.0
 shadow_filter = 4
 shadow_filter_smooth = 32.0
 
-[node name="Attack" type="CollisionShape2D" parent="."]
-position = Vector2( 36.5656, -0.716965 )
-shape = SubResource( 2 )
-disabled = true
+[node name="stab" type="Area2D" parent="."]
 
-[node name="sprite2" type="Sprite" parent="Attack"]
-visible = false
-position = Vector2( -1.35899e-05, -0.179249 )
-scale = Vector2( 1.29127, 0.294231 )
-texture = ExtResource( 2 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="sprite3" type="Sprite" parent="Area2D"]
-visible = false
-scale = Vector2( 1.29127, 0.294231 )
-texture = ExtResource( 2 )
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Area2D/sprite3"]
-anims/stab = SubResource( 4 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stab"]
 polygon = PoolVector2Array( -9.37897, 2.3067, 46.1863, 13.7783, 63.7522, 4.09913, 46.1863, -5.2215 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/CollisionPolygon2D"]
+[node name="sprite3" type="Sprite" parent="stab/CollisionPolygon2D"]
+visible = false
+scale = Vector2( 1.29127, 0.294231 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stab/CollisionPolygon2D"]
 anims/stab = SubResource( 3 )
-[connection signal="animation_finished" from="Area2D/sprite3/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]
-[connection signal="animation_finished" from="Area2D/sprite3/AnimationPlayer2" to="." method="attack_done"]
+
+[node name="axe" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="sprite3" type="Sprite" parent="axe"]
+position = Vector2( 35.1316, -3.04713 )
+scale = Vector2( 0.596704, 0.731135 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="axe"]
+polygon = PoolVector2Array( -9.37897, 2.3067, 22.5259, -4.14577, 27.9032, 8.40124, 46.1863, 13.7783, 41.1672, -16.3343, 22.8844, -17.7682 )
+script = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="axe"]
+[connection signal="animation_finished" from="stab/CollisionPolygon2D/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
