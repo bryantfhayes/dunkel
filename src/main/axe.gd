@@ -1,4 +1,4 @@
-extends Area2D
+ extends Area2D
 
 onready var tween = get_node("Tween")
 onready var sprite = get_node("sprite3")
@@ -11,9 +11,24 @@ onready var sprite = get_node("sprite3")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Ready tween!")
-	tween.interpolate_property(sprite, 'scale',
-		sprite.get_scale(), Vector2(2.0, 2.0), 0.3,
+	print(sprite.position)
+	print(sprite.position.x)
+	tween.interpolate_property(sprite, 'position:x',
+		sprite.position.x, sprite.position.x + 100, 0.6,
+		Tween.TRANS_LINEAR, Tween.EASE_IN)
+		
+	tween.interpolate_property(sprite, 'position:y',
+		sprite.position.y, sprite.position.y +  -100, 0.3,
 		Tween.TRANS_QUAD, Tween.EASE_OUT)
+
+	tween.interpolate_property(sprite, 'position:y',
+		sprite.position.y + -100, sprite.position.y, 0.3,
+		Tween.TRANS_QUAD, Tween.EASE_IN, 0.3)
+
+	tween.interpolate_property(sprite, "rotation_degrees", 
+    	0, 1080, 0.6, 
+    	Tween.TRANS_LINEAR, Tween.EASE_IN)
+
 	#pass # Replace with function body.
 
 func do_the_thing():

@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.7748, 15.7641 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "stab"
 length = 0.4
 tracks/0/type = "value"
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 30, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=3]
 script/source = "extends CollisionPolygon2D
 
 # Declare member variables here. Examples:
@@ -67,7 +67,7 @@ scale = Vector2( 1.29127, 0.294231 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stab/CollisionPolygon2D"]
-anims/stab = SubResource( 3 )
+anims/stab = SubResource( 2 )
 
 [node name="axe" type="Area2D" parent="."]
 script = ExtResource( 4 )
@@ -79,7 +79,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="axe"]
 polygon = PoolVector2Array( -9.37897, 2.3067, 22.5259, -4.14577, 27.9032, 8.40124, 46.1863, 13.7783, 41.1672, -16.3343, 22.8844, -17.7682 )
-script = SubResource( 4 )
+script = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="axe"]
 [connection signal="animation_finished" from="stab/CollisionPolygon2D/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
