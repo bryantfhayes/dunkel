@@ -32,7 +32,7 @@ func _input(event):
 		select_button()
 
 func new_game():
-	get_tree().change_scene("res://src/main/town.tscn")
+	get_tree().change_scene("res://src/main/levels/Level_0.tscn")
 	
 func continue_game():
 	print("Continue button pressed!")

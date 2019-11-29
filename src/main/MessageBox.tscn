@@ -1,12 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/main/message_box.gd" type="Script" id=1]
+[ext_resource path="res://src/main/MessageBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/message_box.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/manaspc.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/message_box_name.png" type="Texture" id=4]
 
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 18
 font_data = ExtResource( 3 )
 
@@ -14,7 +13,7 @@ font_data = ExtResource( 3 )
 size = 19
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 3 )
 
 [node name="message_box" type="CanvasLayer"]
@@ -32,7 +31,7 @@ margin_left = 31.0
 margin_top = 38.0
 margin_right = 790.0
 margin_bottom = 144.0
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "Message Goes Here!"
 
 [node name="character_timer" type="Timer" parent="background_box"]
@@ -58,6 +57,6 @@ margin_left = 714.519
 margin_top = 153.666
 margin_right = 813.519
 margin_bottom = 169.666
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "[ enter ]"
 [connection signal="timeout" from="background_box/character_timer" to="." method="_on_character_timer_timeout"]

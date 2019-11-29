@@ -1,5 +1,5 @@
 #
-# PlayerController - This module is auto-loaded and holds all state for player
+# PlayerManager - This module is auto-loaded and holds all state for player
 #                    node. Anything that needs to persist across saves should be
 #                    kept here.
 #

@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://src/main/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://src/main/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/main_menu_bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/dunkel_logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/new_game_button.png" type="Texture" id=4]

@@ -1,6 +1,6 @@
 extends Node
 
-var MessageBox = preload("res://src/main/message_box.tscn")
+var MessageBox = preload("res://src/main/MessageBox.tscn")
 
 func _ready():
 	print("Game Manager Init")
