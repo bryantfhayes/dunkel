@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pressed_new_game_button.png-4bfb8bdc5bb73b8c50645d6dc9e9039f.stex"
+path="res://.import/Ground (78x58).png-db369c8149c52cd269504878f73b6c53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pressed_new_game_button.png"
-dest_files=[ "res://.import/pressed_new_game_button.png-4bfb8bdc5bb73b8c50645d6dc9e9039f.stex" ]
+source_file="res://assets/player/Ground (78x58).png"
+dest_files=[ "res://.import/Ground (78x58).png-db369c8149c52cd269504878f73b6c53.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

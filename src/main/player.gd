@@ -23,6 +23,7 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	$torch.visible = torch_enabled
+	$anim.play("idle")
 
  
 func _input(event):
@@ -45,13 +46,20 @@ func _physics_process(delta):
 	# Handle user input
 	if input_direction:
 		direction = input_direction
-   
+		
 	if Input.is_action_pressed("move_left"):
+		get_node("sprite").set_flip_h(true)
 		input_direction = -1
 	elif Input.is_action_pressed("move_right"):
+		get_node("sprite").set_flip_h(false)
 		input_direction = 1
 	else:
 		input_direction = 0
+	
+	if input_direction == 0:
+		$anim.play("idle")
+	else:
+		$anim.play("running")
    
 	# Apply user movement
 	if input_direction == - direction:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/greyed_continue_button.png-cc1c9ed983c5529c6ce45bf3f49d7ff9.stex"
+path="res://.import/new_game_button.png-e262eb4236ad7feae15f2520caa5bcb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/greyed_continue_button.png"
-dest_files=[ "res://.import/greyed_continue_button.png-cc1c9ed983c5529c6ce45bf3f49d7ff9.stex" ]
+source_file="res://assets/ui/new_game_button.png"
+dest_files=[ "res://.import/new_game_button.png-e262eb4236ad7feae15f2520caa5bcb0.stex" ]
 
 [params]
 

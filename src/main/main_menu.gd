@@ -42,22 +42,31 @@ func quit_game():
 
 func select_button():
 	if _selected_button == eSelectedButton.NewGame:
-		get_node("new_game_button").set_normal_texture(load("res://assets/pressed_new_game_button.png"))
+		var sound_fx: AudioStreamPlayer2D = get_node("select_sound_fx")
+		sound_fx.play()
+		get_node("new_game_button").set_normal_texture(load("res://assets/ui/pressed_new_game_button.png"))
 		yield(get_tree().create_timer(BUTTON_PRESS_TIMEOUT), "timeout")
 		get_node("new_game_button").set_normal_texture(load("res://assets/new_game_button.png"))
 		new_game()
 	elif _selected_button == eSelectedButton.Continue:
-		get_node("continue_button").set_normal_texture(load("res://assets/pressed_continue_button.png"))
+		var sound_fx: AudioStreamPlayer2D = get_node("error_sound_fx")
+		sound_fx.play()
+		get_node("continue_button").set_normal_texture(load("res://assets/ui/pressed_continue_button.png"))
 		yield(get_tree().create_timer(BUTTON_PRESS_TIMEOUT), "timeout")
-		get_node("continue_button").set_normal_texture(load("res://assets/continue_button.png"))
+		get_node("continue_button").set_normal_texture(load("res://assets/ui/continue_button.png"))
 		continue_game()
 	elif _selected_button == eSelectedButton.Quit:
-		get_node("quit_button").set_normal_texture(load("res://assets/pressed_quit_button.png"))
+		var sound_fx: AudioStreamPlayer2D = get_node("select_sound_fx")
+		sound_fx.play()
+		get_node("quit_button").set_normal_texture(load("res://assets/ui/pressed_quit_button.png"))
 		yield(get_tree().create_timer(BUTTON_PRESS_TIMEOUT), "timeout")
-		get_node("quit_button").set_normal_texture(load("res://assets/quit_button.png"))
+		get_node("quit_button").set_normal_texture(load("res://assets/ui/quit_button.png"))
 		quit_game()
 
 func move_selected(direction):
+	var sound_fx: AudioStreamPlayer2D = get_node("swipe_sound_fx")
+	sound_fx.play()
+	
 	if direction == eButtonMovement.Up:
 		_selected_button -= 1
 	elif direction == eButtonMovement.Down:

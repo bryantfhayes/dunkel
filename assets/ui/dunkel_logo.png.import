@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/quit_button.png-1ac190532f58612b708bf33e57902111.stex"
+path="res://.import/dunkel_logo.png-5063035098f91485288d80a488a0a71e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/quit_button.png"
-dest_files=[ "res://.import/quit_button.png-1ac190532f58612b708bf33e57902111.stex" ]
+source_file="res://assets/ui/dunkel_logo.png"
+dest_files=[ "res://.import/dunkel_logo.png-5063035098f91485288d80a488a0a71e.stex" ]
 
 [params]
 

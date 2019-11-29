@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/message_box.png-c29b6100f8c4121869078879bea6f26f.stex"
+path="res://.import/pressed_continue_button.png-292cdaacf9275355e335f3f26e5883b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/message_box.png"
-dest_files=[ "res://.import/message_box.png-c29b6100f8c4121869078879bea6f26f.stex" ]
+source_file="res://assets/ui/pressed_continue_button.png"
+dest_files=[ "res://.import/pressed_continue_button.png-292cdaacf9275355e335f3f26e5883b4.stex" ]
 
 [params]
 

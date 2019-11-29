@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/new_game_button.png-7e4d123f1b26402df3aa7d12584d3c0f.stex"
+path="res://.import/Attack (78x58).png-bb6d8363aa61d5db60b94b08cc750d39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/new_game_button.png"
-dest_files=[ "res://.import/new_game_button.png-7e4d123f1b26402df3aa7d12584d3c0f.stex" ]
+source_file="res://assets/player/Attack (78x58).png"
+dest_files=[ "res://.import/Attack (78x58).png-bb6d8363aa61d5db60b94b08cc750d39.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

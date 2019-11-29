@@ -1,16 +1,19 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/main/main_menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/main_menu_bg.png" type="Texture" id=2]
-[ext_resource path="res://assets/dunkel_logo.png" type="Texture" id=3]
-[ext_resource path="res://assets/new_game_button.png" type="Texture" id=4]
-[ext_resource path="res://assets/pressed_new_game_button.png" type="Texture" id=5]
-[ext_resource path="res://assets/continue_button.png" type="Texture" id=6]
-[ext_resource path="res://assets/pressed_continue_button.png" type="Texture" id=7]
-[ext_resource path="res://assets/greyed_continue_button.png" type="Texture" id=8]
-[ext_resource path="res://assets/quit_button.png" type="Texture" id=9]
-[ext_resource path="res://assets/pressed_quit_button.png" type="Texture" id=10]
-[ext_resource path="res://assets/finger.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/main_menu_bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/dunkel_logo.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/new_game_button.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/pressed_new_game_button.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/continue_button.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/pressed_continue_button.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/greyed_continue_button.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/quit_button.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/pressed_quit_button.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/finger.png" type="Texture" id=11]
+[ext_resource path="res://assets/sounds/Cute_Swipe 01.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sounds/Confirm_02.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sounds/Cute_Error_02.wav" type="AudioStream" id=14]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,9 +31,9 @@ margin_bottom = 243.391
 texture = ExtResource( 3 )
 
 [node name="new_game_button" type="TextureButton" parent="."]
-margin_left = 332.293
+margin_left = 333.041
 margin_top = 387.151
-margin_right = 587.293
+margin_right = 588.041
 margin_bottom = 445.151
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
@@ -79,4 +82,16 @@ texture = ExtResource( 11 )
 [node name="pointer_blink_timer" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
+
+[node name="swipe_sound_fx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="select_sound_fx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+
+[node name="error_sound_fx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+volume_db = -10.0
 [connection signal="timeout" from="pointer_blink_timer" to="." method="_on_pointer_blink_timer_timeout"]

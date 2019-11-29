@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cave_bg.png-db4aae7160e03ce0383c10b0a73eaa49.stex"
+path="res://.import/continue_button.png-ec56aef76e4bff113a971e644dcc71d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cave_bg.png"
-dest_files=[ "res://.import/cave_bg.png-db4aae7160e03ce0383c10b0a73eaa49.stex" ]
+source_file="res://assets/ui/continue_button.png"
+dest_files=[ "res://.import/continue_button.png-ec56aef76e4bff113a971e644dcc71d5.stex" ]
 
 [params]
 

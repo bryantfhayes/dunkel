@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/continue_button.png-d9bf158a5112629915b97252d1c7511b.stex"
+path="res://.import/message_box.png-5e15a31a1dd7dda195a7e96243a4c4ec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/continue_button.png"
-dest_files=[ "res://.import/continue_button.png-d9bf158a5112629915b97252d1c7511b.stex" ]
+source_file="res://assets/ui/message_box.png"
+dest_files=[ "res://.import/message_box.png-5e15a31a1dd7dda195a7e96243a4c4ec.stex" ]
 
 [params]
 
