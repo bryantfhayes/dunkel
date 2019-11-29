@@ -15,7 +15,7 @@ extents = Vector2( 7.3487, 11.868 )
 resource_name = "falling"
 step = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:hframes")
+tracks/0/path = NodePath("../Player/Sprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath("../Player/Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -39,7 +39,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:texture")
+tracks/2/path = NodePath("../Player/Sprite:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -109,7 +109,7 @@ tracks/3/keys = {
 resource_name = "jumping"
 step = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("../Player/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -121,7 +121,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("../Player/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -133,7 +133,7 @@ tracks/1/keys = {
 "values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("../Player/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -150,7 +150,7 @@ resource_name = "melee"
 length = 3.0
 step = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("../Player/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -162,7 +162,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("../Player/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -174,7 +174,7 @@ tracks/1/keys = {
 "values": [ 3 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("../Player/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -186,7 +186,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
+tracks/3/path = NodePath("../Player/AnimationPlayer:playback_speed")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -203,7 +203,7 @@ resource_name = "running"
 length = 8.0
 step = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("../Player/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -215,7 +215,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("../Player/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -227,7 +227,7 @@ tracks/1/keys = {
 "values": [ 8 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("../Player/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -239,7 +239,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
+tracks/3/path = NodePath("../Player/AnimationPlayer:playback_speed")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -255,6 +255,7 @@ tracks/3/keys = {
 script = ExtResource( 2 )
 MAX_SPEED = 300
 JUMP_FORCE = 600
+FALL_MULTIPLIER = 1.3
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
@@ -280,3 +281,6 @@ drag_margin_top = 0.5
 drag_margin_bottom = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="JumpSoundFx" parent="." index="5"]
+volume_db = -35.0

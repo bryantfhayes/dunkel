@@ -9,7 +9,7 @@ export var DECELERATION = 70
 # Jump adjustments
 export var JUMP_FORCE = 800
 export var GRAVITY = 2000
-export var FALL_MULTIPLIER = 2
+export (float) var FALL_MULTIPLIER = 2
 export var MIN_JUMP_HEIGHT = -300
 
 var controller: EntityController
