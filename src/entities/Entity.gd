@@ -1,6 +1,8 @@
 class_name Entity
 extends KinematicBody2D
 
+var paused = false
+
 # Lateral movement adjustments
 export var MAX_SPEED = 500
 export var ACCELERATION = 30
@@ -44,7 +46,10 @@ func attack():
 # Handles input when there is some
 #
 func _process(delta):
-	controller.process(self, delta)
+	if !paused:
+		controller.process(self, delta)
+	else:
+		movement_direction = Dir.None
 
 #
 # Handles physics process each frame
@@ -54,9 +59,12 @@ func _physics_process(delta):
 	
 	if movement_direction != Dir.None:
 		current_direction = movement_direction
+		
+	if is_on_floor():
+		can_wall_jump = true
 	
 	# Make sure animation matches movement
-	if anim.current_animation != "melee":
+	if anim.current_animation != "melee" and anim.current_animation != "door_in" and anim.current_animation != "door_out":
 		if is_on_floor() == false:
 			if velocity.y < 0:
 				anim.play("jumping")

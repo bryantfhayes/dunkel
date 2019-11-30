@@ -6,7 +6,7 @@ var anchor_pos = Vector2(0, 0)
 var _message_index = 0
 var _messages = []
 var current_conversation = null
-export(float) var character_speed = 0.10
+export(float) var character_speed = 0.06
 
 onready var bg = get_node("background_box")
 onready var textlbl = get_node("background_box/text_label")

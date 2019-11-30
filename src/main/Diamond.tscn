@@ -4,7 +4,7 @@
 [ext_resource path="res://src/main/Diamond.gd" type="Script" id=2]
 [ext_resource path="res://assets/sounds/Coins_01.wav" type="AudioStream" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "floating_diamond"
 length = 10.0
 loop = true
@@ -34,7 +34,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 1 ), Vector2( 0, -1 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 4.90223
 
 [node name="Diamond" type="Sprite"]
@@ -47,13 +47,13 @@ script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 10.0
-anims/floating_diamond = SubResource( 2 )
+anims/floating_diamond = SubResource( 1 )
 
 [node name="PickupArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2( 2.04361, -0.786003 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="PickupSoundFx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

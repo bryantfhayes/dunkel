@@ -6,8 +6,8 @@ func _ready():
 	controller = NPCController.new()
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") and player_nearby:
-		GameManager.show_message(self.get_parent(), [{"message" : "Hello there", "speaker" : "npc"}])
+	if event.is_action_pressed("ui_accept") and player_nearby and !paused:
+		GameManager.show_message([{"message" : "Hello there", "speaker" : "npc"}])
 
 # Override
 func move(dir):
