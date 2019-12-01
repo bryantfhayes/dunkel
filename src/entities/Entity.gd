@@ -16,6 +16,11 @@ export var MIN_JUMP_HEIGHT = -300
 
 var controller: EntityController
 
+# Fix these in child class to make sprite make sense
+var flip_dir_inverted = false
+var sprite_flip_left_offset = 0
+var sprite_flip_right_offset = 0
+
 var movement_direction = Dir.None
 var current_direction = Dir.None
 var speed_x = 0
@@ -28,6 +33,15 @@ func _ready():
 
 # Virtual
 func move(dir):
+	if dir == Dir.Left:
+		$Sprite.set_flip_h(flip_dir_inverted)
+		$Sprite.offset.x = sprite_flip_left_offset
+	elif dir == Dir.Right:
+		$Sprite.set_flip_h(!flip_dir_inverted)
+		$Sprite.offset.x = sprite_flip_right_offset
+	movement_direction = dir
+
+func take_damage(dmg):
 	pass
 
 # Virtual

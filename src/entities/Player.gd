@@ -2,20 +2,21 @@ class_name Player
 extends Entity
 
 func _ready():
+	flip_dir_inverted = true
+	sprite_flip_left_offset = -15
 	controller = PlayerController.new()
 	
 func _process(delta):
 	._process(delta)
+
+# Override
+func take_damage(dmg):
+	.take_damage(dmg)
+	print("Ouch!")
 	
 # Override
 func move(dir):
-	if dir == Dir.Left:
-		$Sprite.set_flip_h(true)
-		$Sprite.offset.x = -15
-	elif dir == Dir.Right:
-		$Sprite.set_flip_h(false)
-		$Sprite.offset.x = 0
-	movement_direction = dir
+	.move(dir)
 	
 # Override
 func jump():

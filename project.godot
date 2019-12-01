@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/main/Door.gd"
 }, {
+"base": "EntityController",
+"class": "DumbPigController",
+"language": "GDScript",
+"path": "res://src/entities/DumbPigController.gd"
+}, {
+"base": "Entity",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://src/entities/Enemy.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Entity",
 "language": "GDScript",
@@ -29,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/entities/NPCController.gd"
 }, {
+"base": "Enemy",
+"class": "Pig",
+"language": "GDScript",
+"path": "res://src/entities/Pig.gd"
+}, {
 "base": "Entity",
 "class": "Player",
 "language": "GDScript",
@@ -41,9 +56,12 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Door": "",
+"DumbPigController": "",
+"Enemy": "",
 "Entity": "",
 "EntityController": "",
 "NPCController": "",
+"Pig": "",
 "Player": "",
 "PlayerController": ""
 }

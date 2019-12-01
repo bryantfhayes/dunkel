@@ -11,7 +11,7 @@ var _first_diamond_complete = false
 var _speaker_king_brax = "King Brax"
 
 # DIALOGS
-var _dialog_intro_message_0 = "The goblin king has stolen my queen! I have come to this castle to break her free."
+var _dialog_intro_message_0 = "The pig king has stolen my queen! I have come to this castle to break her free."
 var _dialog_intro_message_1 = "First, I need to figure out my way around this place..."
 var _dialog_first_diamond_0 = "You steal my wife, I steal your diamonds!"
 
