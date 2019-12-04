@@ -1,6 +1,9 @@
 class_name Player
 extends Entity
 
+var current_attack = 0
+var current_attack_damage = 5
+
 func _ready():
 	flip_dir_inverted = true
 	sprite_flip_left_offset = -15
@@ -37,3 +40,17 @@ func end_jump():
 func attack():
 	$AttackSoundFx.play()
 	$AnimationPlayer.play("melee")
+
+func _on_Area2D_area_entered(area):
+	print("Collided with area:")
+	print(area)
+	pass # Replace with function body.
+
+
+func _on_Area2D_body_entered(body):
+	print("Collided with body:")
+	print(body)
+	var player := body as Entity
+	if player != null:
+		player.take_damage(current_attack_damage)
+	pass # Replace with function body.

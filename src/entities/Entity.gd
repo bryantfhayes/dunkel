@@ -27,6 +27,8 @@ var speed_x = 0
 var velocity = Vector2()
 var can_wall_jump = true
 
+var health = 20
+
 func _ready():
 	set_process(true)
 	set_process_input(true)
@@ -35,9 +37,21 @@ func _ready():
 func move(dir):
 	if dir == Dir.Left:
 		$Sprite.set_flip_h(flip_dir_inverted)
+		var attack_node = get_node("Area2D")
+		print(attack_node)
+		if attack_node != null:
+			print("Flipping!")
+			attack_node.set_scale(Vector2(-1,1))
+			attack_node.position.x = sprite_flip_left_offset
 		$Sprite.offset.x = sprite_flip_left_offset
 	elif dir == Dir.Right:
 		$Sprite.set_flip_h(!flip_dir_inverted)
+		var attack_node = get_node("Area2D")
+		print(attack_node)
+		if attack_node != null:
+			print("Flipping!")
+			attack_node.set_scale(Vector2(1,1))
+			attack_node.position.x = sprite_flip_right_offset
 		$Sprite.offset.x = sprite_flip_right_offset
 	movement_direction = dir
 

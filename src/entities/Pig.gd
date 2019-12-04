@@ -1,6 +1,9 @@
 class_name Pig
 extends Enemy
 
+func _init():
+	health = 10
+
 func _ready():
 	flip_dir_inverted = false
 	sprite_flip_right_offset = 6
@@ -24,3 +27,7 @@ func end_jump():
 # Override
 func attack():
 	pass
+	
+func take_damage(amount):
+	health -= amount
+	print(health)
