@@ -34,7 +34,7 @@ visible = false
 color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 774.552, 420.835 )
+position = Vector2( 767.603, 414.349 )
 
 [node name="Diamonds" type="Node2D" parent="."]
 

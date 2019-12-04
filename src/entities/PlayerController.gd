@@ -18,6 +18,10 @@ func process(entity, delta) -> void:
 	if Input.is_action_just_pressed("attack") and time_since_last_attack >= attack_cooldown:
 		time_since_last_attack = 0
 		entity.attack()
+	
+	if Input.is_action_just_pressed("bomb") and time_since_last_attack >= attack_cooldown:
+		time_since_last_attack = 0
+		entity.drop_bomb()
 
 	
 	# Left/Right Movement
