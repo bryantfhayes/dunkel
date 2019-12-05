@@ -42,13 +42,15 @@ func attack():
 	$AnimationPlayer.play("melee")
 	
 func drop_bomb():
+	var scene = load("res://src/main/Bomb.tscn")
+	print(scene)
+	if scene != null:
+		var scene_instance = scene.instance()
+		scene_instance.set_name("Bomb")
+		scene_instance.position.x = self.position.x
+		scene_instance.position.y = self.position.y
+		get_owner().add_child(scene_instance)
 	print("Drop!")
-
-func _on_Area2D_area_entered(area):
-	print("Collided with area:")
-	print(area)
-	pass # Replace with function body.
-
 
 func _on_Area2D_body_entered(body):
 	print("Collided with body:")

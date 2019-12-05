@@ -367,7 +367,7 @@ tracks/3/keys = {
 "values": [ 9.0 ]
 }
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 MAX_SPEED = 300
 JUMP_FORCE = 600

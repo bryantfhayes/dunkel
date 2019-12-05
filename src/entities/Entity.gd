@@ -46,7 +46,7 @@ func move(dir):
 		$Sprite.offset.x = sprite_flip_left_offset
 	elif dir == Dir.Right:
 		$Sprite.set_flip_h(!flip_dir_inverted)
-		var attack_node = get_node("Area2D")
+		var attack_node = get_node("MeleeArea")
 		print(attack_node)
 		if attack_node != null:
 			print("Flipping!")
