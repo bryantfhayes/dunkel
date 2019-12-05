@@ -30,4 +30,4 @@ func attack():
 	
 func take_damage(amount):
 	health -= amount
-	print(health)
+	print("Pig health remaining: %d" % health)

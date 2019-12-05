@@ -38,18 +38,14 @@ func move(dir):
 	if dir == Dir.Left:
 		$Sprite.set_flip_h(flip_dir_inverted)
 		var attack_node = get_node("MeleeArea")
-		print(attack_node)
 		if attack_node != null:
-			print("Flipping!")
 			attack_node.set_scale(Vector2(-1,1))
 			attack_node.position.x = sprite_flip_left_offset
 		$Sprite.offset.x = sprite_flip_left_offset
 	elif dir == Dir.Right:
 		$Sprite.set_flip_h(!flip_dir_inverted)
 		var attack_node = get_node("MeleeArea")
-		print(attack_node)
 		if attack_node != null:
-			print("Flipping!")
 			attack_node.set_scale(Vector2(1,1))
 			attack_node.position.x = sprite_flip_right_offset
 		$Sprite.offset.x = sprite_flip_right_offset

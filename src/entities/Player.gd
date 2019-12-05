@@ -53,9 +53,6 @@ func drop_bomb():
 	print("Drop!")
 
 func _on_Area2D_body_entered(body):
-	print("Collided with body:")
-	print(body)
 	var enemy := body as Enemy
 	if enemy != null:
 		enemy.take_damage(current_attack_damage)
-	pass # Replace with function body.
