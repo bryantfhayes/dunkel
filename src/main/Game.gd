@@ -6,6 +6,19 @@ var _last_used_door = 0
 func _ready():
 	load_level(_current_level_id, _last_used_door)
 
+func game_over():
+	get_node("HUD/AnimationPlayer").play("hud_death")
+
+func find_door_for_id(id):
+	var level = get_node("Level%d" % _current_level_id)
+	for child in level.get_children():
+		var door := child as Door
+		if door != null:
+			if door.id == id:
+				return door
+	
+	return null
+
 func spawn_player_at_door(door_id):
 	print("spawning at door %d..." % door_id)
 	var level = get_node("Level%d" % _current_level_id)
@@ -22,7 +35,13 @@ func spawn_player_at_door(door_id):
 					player.get_node("AnimationPlayer").play("door_out")
 					player.visible = true
 					yield(player.get_node("AnimationPlayer"), "animation_finished")
-					door.close_door()
+					
+					# Special case first door in the game
+					if door_id == 0:
+						door.close_door()
+					else:
+						door.locked = false
+						
 					GameManager.unpause_game()
 					
 					Events.EVENT_intro_message()

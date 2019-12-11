@@ -9,6 +9,18 @@ var door_map = {
 	3 : { "level" : 1, "target_door" : 0 }
 }
 
+func goto_main_menu():
+	get_tree().change_scene("res://src/main/MainMenu.tscn")
+
+func game_over():
+	var game = get_tree().get_root().get_node("Game")
+	pause_game()
+	game.game_over()
+	PlayerManager.reset()
+	Events.reset()
+	yield(game.get_node("HUD/AnimationPlayer"), "animation_finished")
+	goto_main_menu()
+
 func _ready():
 	print("Game Manager Init")
 

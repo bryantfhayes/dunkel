@@ -23,13 +23,16 @@ tile_data = PoolIntArray( 65531, 0, 65537, 65532, 0, 65537, 65533, 0, 65537, 655
 
 [node name="Button" parent="." instance=ExtResource( 7 )]
 position = Vector2( 422, 433 )
+target_door = 1
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 107, 516 )
+locked = true
 
 [node name="Door2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 406, 516 )
 id = 1
+locked = true
 
 [node name="darkness" type="CanvasModulate" parent="."]
 visible = false

@@ -33,3 +33,8 @@ func is_diamond_already_collected(id):
 	if id in _diamonds_collected:
 		return true
 	return false
+	
+func reset():
+	_diamonds_collected = {}
+	_intro_message_complete = true
+	_first_diamond_complete = true

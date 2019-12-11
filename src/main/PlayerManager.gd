@@ -26,3 +26,7 @@ func get_diamond_count():
 func add_diamonds(diamonds):
 	_diamonds += diamonds
 	emit_signal("update_hud")
+	
+func reset():
+	_diamonds = 0
+	

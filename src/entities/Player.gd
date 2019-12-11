@@ -16,6 +16,10 @@ func _process(delta):
 func take_damage(dmg):
 	.take_damage(dmg)
 	print("Ouch!")
+	health -= dmg
+	
+	if health < 0:
+		GameManager.game_over()
 	
 # Override
 func move(dir):

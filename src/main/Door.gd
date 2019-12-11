@@ -4,15 +4,21 @@ extends Sprite
 # Used to connect doors together
 export (int) var id = 0
 
+# Lock or unlock door by default
+export (bool) var locked = false
+
 var _player_active = false
 
 func _ready():
-	pass
+	if locked:
+		$AnimationPlayer.play("idle_closed")
+	else:
+		$AnimationPlayer.play("idle_open")
 	
 func _process(delta):
 	if _player_active:
-		if Input.is_action_just_pressed("ui_up"):
-			open_door(true)
+		if Input.is_action_just_pressed("ui_up") and locked == false:
+			# open_door(true)
 			GameManager.use_door(id)
 
 func open_door(wait=false):
