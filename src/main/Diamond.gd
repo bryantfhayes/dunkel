@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	if picked_up:
 		if (!get_node("PickupSoundFx").playing):
-	    	queue_free()
+			queue_free()
 
 func pickup():
 	if !picked_up:

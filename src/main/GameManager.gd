@@ -4,7 +4,9 @@ var MessageBox = preload("res://src/main/MessageBox.tscn")
 
 var door_map = {
 	0 : { "level" : 0, "target_door" : 1 },
-	1 : { "level" : 0, "target_door" : 0 }
+	1 : { "level" : 0, "target_door" : 2 },
+	2 : { "level" : 1, "target_door" : 1 },
+	3 : { "level" : 1, "target_door" : 0 }
 }
 
 func _ready():
