@@ -3,12 +3,15 @@ extends Node
 var MessageBox = preload("res://src/main/MessageBox.tscn")
 
 var door_map = {
-	0 : { "level" : 0, "target_door" : 1 },
+	0 : { "level" : 0, "target_door" : 100 },
 	1 : { "level" : 0, "target_door" : 2 },
 	2 : { "level" : 1, "target_door" : 1 },
 	3 : { "level" : 1, "target_door" : 4 },
 	4 : { "level" : 2, "target_door" : 3 },
-	5 : { "level" : 2, "target_door" : 6 }
+	5 : { "level" : 2, "target_door" : 6 },
+	100 : { "level" : 4, "target_door" : 0 },
+	101 : { "level" : 4, "target_door" : 102},
+	102 : { "level" : 4, "target_door" : 101} 
 }
 
 func goto_main_menu():

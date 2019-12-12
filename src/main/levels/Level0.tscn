@@ -27,7 +27,6 @@ target_door = 1
 
 [node name="Door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 107, 516 )
-locked = true
 
 [node name="Door2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 406, 516 )

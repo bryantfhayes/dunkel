@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/button/btn_up.png" type="Texture" id=2]
 [ext_resource path="res://assets/button/btn_dn.png" type="Texture" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.1236, 9.85172 )
 
