@@ -2,9 +2,9 @@
 
 [ext_resource path="res://src/entities/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/entities/Pig.gd" type="Script" id=2]
-[ext_resource path="res://assets/pig/Hit (34x28).png" type="Texture" id=3]
-[ext_resource path="res://assets/pig/Dead (34x28).png" type="Texture" id=4]
-[ext_resource path="res://assets/pig/Fall (34x28).png" type="Texture" id=5]
+[ext_resource path="res://assets/pig/Dead (34x28).png" type="Texture" id=3]
+[ext_resource path="res://assets/pig/Fall (34x28).png" type="Texture" id=4]
+[ext_resource path="res://assets/pig/Hit (34x28).png" type="Texture" id=5]
 [ext_resource path="res://assets/pig/Idle (34x28).png" type="Texture" id=6]
 [ext_resource path="res://assets/pig/Jump (34x28).png" type="Texture" id=7]
 [ext_resource path="res://assets/pig/Run (34x28).png" type="Texture" id=8]
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -117,7 +117,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -271,7 +271,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
-hframes = 2
+hframes = 4
 frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]

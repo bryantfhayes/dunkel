@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-var margin = 10
+var v_margin = 10
+var h_margin = 10
 var inner_margin = 30
 var anchor_pos = Vector2(0, 0)
 var _message_index = 0
@@ -48,12 +49,12 @@ func init(messages):
 	# Set position and size of background_box
 	var viewport_size = get_viewport().size
 	var message_box_size = bg.rect_size
-	anchor_pos = Vector2((viewport_size.x - message_box_size.x) / 2, viewport_size.y - message_box_size.y - margin)
+	anchor_pos = Vector2((viewport_size.x - message_box_size.x) / 2, viewport_size.y - message_box_size.y - v_margin)
 	bg.rect_position = anchor_pos
 	
 	# Set size of text_label
 	textlbl.rect_position = Vector2(inner_margin, inner_margin)
-	textlbl.rect_size = bg.rect_size - Vector2(margin, margin)
+	textlbl.rect_size = bg.rect_size - Vector2(h_margin, v_margin)
 
 #
 # Called every frame. 'delta' is the elapsed time since the previous frame.

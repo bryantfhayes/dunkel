@@ -24,6 +24,19 @@ func take_damage(dmg):
 # Override
 func move(dir):
 	.move(dir)
+	if dir == Dir.Left:
+		var attack_node = get_node("MeleeArea")
+		if attack_node != null:
+			attack_node.set_scale(Vector2(-1,1))
+			attack_node.position.x = sprite_flip_left_offset
+
+	elif dir == Dir.Right:
+		var attack_node = get_node("MeleeArea")
+		if attack_node != null:
+			attack_node.set_scale(Vector2(1,1))
+			attack_node.position.x = sprite_flip_right_offset
+
+
 	
 # Override
 func jump():
@@ -50,9 +63,11 @@ func drop_bomb():
 	print(scene)
 	if scene != null:
 		var scene_instance = scene.instance()
+		var offset = 7
+		if $Sprite.flip_h:
+			offset = -20
 		scene_instance.set_name("Bomb")
-		scene_instance.position.x = self.position.x
-		scene_instance.position.y = self.position.y
+		scene_instance.position = self.position + Vector2(offset, 0)
 		get_owner().add_child(scene_instance)
 	print("Drop!")
 

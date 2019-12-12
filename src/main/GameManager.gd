@@ -8,7 +8,9 @@ var door_map = {
 	2 : { "level" : 1, "target_door" : 1 },
 	3 : { "level" : 1, "target_door" : 4 },
 	4 : { "level" : 2, "target_door" : 3 },
-	5 : { "level" : 2, "target_door" : 6 }
+	5 : { "level" : 2, "target_door" : 6 },
+	6 : { "level" : 3, "target_door" : 5 },
+	7 : { "level" : 3, "target_door" : 8 }
 }
 
 func goto_main_menu():
@@ -32,6 +34,7 @@ func _ready():
 func message_complete_callback(level_node, message_box):
 	message_box.queue_free()
 	unpause_game()
+	SignalManager.emit_signal("message_box_complete")
 
 #
 # Pause/Un-pause all children for given node (physics process)
@@ -83,6 +86,7 @@ func use_door(id):
 	
 func wait(t: float):
 	yield(get_tree().create_timer(t), "timeout")
+
 
 
 

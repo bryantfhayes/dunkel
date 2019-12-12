@@ -1,13 +1,12 @@
-class_name Pig
-extends Enemy
+class_name PigKing
+extends Entity
 
 func _init():
 	health = 10
+	controller = NPCController.new()
 
 func _ready():
-	flip_dir_inverted = false
-	sprite_flip_right_offset = 6
-	controller = DumbPigController.new()
+	pass
 	
 func _process(delta):
 	._process(delta)

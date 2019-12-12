@@ -2,6 +2,7 @@ class_name Entity
 extends KinematicBody2D
 
 var paused = false
+var dead = false
 
 # Lateral movement adjustments
 export var MAX_SPEED = 500
@@ -37,17 +38,9 @@ func _ready():
 func move(dir):
 	if dir == Dir.Left:
 		$Sprite.set_flip_h(flip_dir_inverted)
-		var attack_node = get_node("MeleeArea")
-		if attack_node != null:
-			attack_node.set_scale(Vector2(-1,1))
-			attack_node.position.x = sprite_flip_left_offset
 		$Sprite.offset.x = sprite_flip_left_offset
 	elif dir == Dir.Right:
 		$Sprite.set_flip_h(!flip_dir_inverted)
-		var attack_node = get_node("MeleeArea")
-		if attack_node != null:
-			attack_node.set_scale(Vector2(1,1))
-			attack_node.position.x = sprite_flip_right_offset
 		$Sprite.offset.x = sprite_flip_right_offset
 	movement_direction = dir
 

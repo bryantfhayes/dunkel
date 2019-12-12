@@ -25,4 +25,6 @@ func _on_Area2D_body_entered(body):
 	var enemy := body as Enemy
 	if enemy != null:
 		enemy.take_damage(damage)
-	pass # Replace with function body.
+	var box := body as Box
+	if box != null:
+		box.explode()
