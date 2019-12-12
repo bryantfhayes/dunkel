@@ -1,6 +1,7 @@
 class_name Pig
 extends Enemy
 
+
 func _init():
 	health = 10
 
@@ -28,6 +29,16 @@ func end_jump():
 func attack():
 	pass
 	
+func die():
+	$AnimationPlayer.play("death")
+	yield(get_node("AnimationPlayer"), "animation_finished")
+	self.queue_free()
+	
 func take_damage(amount):
 	health -= amount
 	print("Pig health remaining: %d" % health)
+	$AnimationPlayer.play("hit")
+	yield(get_node("AnimationPlayer"), "animation_finished")
+	
+	if health <= 0:
+		die()

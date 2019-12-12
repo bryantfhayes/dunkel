@@ -78,6 +78,7 @@ GameManager="*res://src/main/GameManager.gd"
 PlayerManager="*res://src/main/PlayerManager.gd"
 Dir="*res://src/main/Dir.gd"
 Events="*res://src/main/Events.gd"
+SignalManager="*res://src/main/SignalManager.gd"
 
 [display]
 

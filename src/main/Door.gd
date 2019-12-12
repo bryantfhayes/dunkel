@@ -14,12 +14,19 @@ func _ready():
 		$AnimationPlayer.play("idle_closed")
 	else:
 		$AnimationPlayer.play("idle_open")
+		
+	# Connect any signals that matter to doors
+	SignalManager.connect("button_pressed", self, "button_pressed")
 	
 func _process(delta):
 	if _player_active:
 		if Input.is_action_just_pressed("ui_up") and locked == false:
-			# open_door(true)
 			GameManager.use_door(id)
+
+func button_pressed(target_door):
+	if target_door == id:
+		open_door()
+		locked = false
 
 func open_door(wait=false):
 	$AnimationPlayer.play("open")

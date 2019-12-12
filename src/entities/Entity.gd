@@ -88,7 +88,7 @@ func _physics_process(delta):
 		can_wall_jump = true
 	
 	# Make sure animation matches movement
-	if anim.current_animation != "melee" and anim.current_animation != "door_in" and anim.current_animation != "door_out":
+	if anim.current_animation != "melee" and anim.current_animation != "door_in" and anim.current_animation != "door_out" and anim.current_animation != "death" and anim.current_animation != "hit":
 		if is_on_floor() == false:
 			if velocity.y < 0:
 				anim.play("jumping")

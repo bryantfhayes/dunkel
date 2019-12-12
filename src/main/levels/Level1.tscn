@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/resources/decor.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/resources/bricks.tres" type="TileSet" id=2]
 [ext_resource path="res://src/main/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/main/Diamond.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/main/Spike.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/main/SpearShaft.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/main/Spear.tscn" type="PackedScene" id=6]
 
 [node name="Level1" type="Node2D"]
 
@@ -35,7 +34,7 @@ visible = false
 color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 767.603, 414.349 )
+position = Vector2( 742.85, 388.14 )
 
 [node name="Diamonds" type="Node2D" parent="."]
 
@@ -43,46 +42,49 @@ position = Vector2( 767.603, 414.349 )
 position = Vector2( 269, 496 )
 id = 3
 
-[node name="Spikes" type="Node2D" parent="."]
+[node name="Spears" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Spike" parent="Spikes" instance=ExtResource( 6 )]
-position = Vector2( 209, 617 )
+[node name="Spear" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 202.059, 616 )
+rotation = -0.0749927
 
-[node name="Spike2" parent="Spikes" instance=ExtResource( 6 )]
-position = Vector2( 230, 617 )
+[node name="Spear2" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 213.976, 616 )
+rotation = 0.0484807
 
-[node name="Spike3" parent="Spikes" instance=ExtResource( 6 )]
-position = Vector2( 252, 617 )
+[node name="Spear3" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 227.006, 616 )
+rotation = -0.0188236
 
-[node name="Spike4" parent="Spikes" instance=ExtResource( 6 )]
-position = Vector2( 272, 617 )
+[node name="Spear4" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 241.15, 616 )
+rotation = -0.0377882
 
-[node name="Spike5" parent="Spikes" instance=ExtResource( 6 )]
-position = Vector2( 292, 617 )
+[node name="Spear5" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 254.292, 616 )
+rotation = 0.116913
 
-[node name="Spike6" parent="Spikes" instance=ExtResource( 6 )]
-position = Vector2( 312, 617 )
+[node name="Spear6" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 268.77, 616 )
+rotation = -0.0816595
 
-[node name="Spike7" parent="Spikes" instance=ExtResource( 6 )]
-position = Vector2( 334, 617 )
+[node name="Spear7" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 282.914, 616 )
+rotation = 0.149585
 
-[node name="SpearShaft" parent="Spikes" instance=ExtResource( 7 )]
-position = Vector2( 209, 633 )
+[node name="Spear8" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 296.836, 616 )
+rotation = 0.0606222
 
-[node name="SpearShaft2" parent="Spikes" instance=ExtResource( 7 )]
-position = Vector2( 230, 633 )
+[node name="Spear9" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 311.982, 616 )
+rotation = -0.164412
 
-[node name="SpearShaft3" parent="Spikes" instance=ExtResource( 7 )]
-position = Vector2( 252, 633 )
+[node name="Spear10" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 325.903, 616 )
+rotation = -0.0403536
 
-[node name="SpearShaft4" parent="Spikes" instance=ExtResource( 7 )]
-position = Vector2( 272, 632 )
-
-[node name="SpearShaft5" parent="Spikes" instance=ExtResource( 7 )]
-position = Vector2( 292, 633 )
-
-[node name="SpearShaft6" parent="Spikes" instance=ExtResource( 7 )]
-position = Vector2( 312, 633 )
-
-[node name="SpearShaft7" parent="Spikes" instance=ExtResource( 7 )]
-position = Vector2( 334, 633 )
+[node name="Spear11" parent="Spears" instance=ExtResource( 6 )]
+position = Vector2( 342.497, 616 )
+rotation = -0.0591852
