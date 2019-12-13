@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/resources/decor.tres" type="TileSet" id=1]
 [ext_resource path="res://src/main/Spear.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/resources/bricks.tres" type="TileSet" id=3]
 [ext_resource path="res://src/main/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/main/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/main/Diamond.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/entities/Pig.tscn" type="PackedScene" id=8]
 
 [node name="Level4" type="Node2D"]
 
@@ -13,7 +15,7 @@
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 393221, 0, 0, 393222, 0, 1, 393238, 2, 0, 393239, 2, 2, 458757, 0, 65536, 458758, 0, 65537, 589844, 1, 0, 589845, 1, 1, 655371, 2, 0, 655372, 2, 1, 655373, 2, 2, 655380, 1, 65536, 655381, 1, 65537, 655383, 2, 3, 786438, 1, 0, 786439, 1, 1, 851974, 1, 65536, 851975, 1, 65537, 851977, 2, 3, 851985, 0, 0, 851986, 0, 1, 917521, 0, 65536, 917522, 0, 65537 )
+tile_data = PoolIntArray( 393221, 0, 0, 393222, 0, 1, 393238, 2, 0, 393239, 2, 2, 458757, 0, 65536, 458758, 0, 65537, 589844, 1, 0, 589845, 1, 1, 655371, 2, 0, 655372, 2, 1, 655373, 2, 2, 655380, 1, 65536, 655381, 1, 65537, 655383, 2, 3, 786438, 1, 0, 786439, 1, 1, 851974, 1, 65536, 851975, 1, 65537, 851977, 2, 3, 851985, 0, 0, 851986, 0, 1, 917520, 2, 3, 917521, 0, 65536, 917522, 0, 65537 )
 
 [node name="Spear7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 651.099, 345.538 )
@@ -49,6 +51,14 @@ color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="Diamonds" type="Node2D" parent="."]
 
+[node name="Diamond" parent="Diamonds" instance=ExtResource( 6 )]
+position = Vector2( 655.504, 436.671 )
+id = 100
+
+[node name="Diamond2" parent="Diamonds" instance=ExtResource( 6 )]
+position = Vector2( 782.396, 336.359 )
+id = 102
+
 [node name="Door3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 735.66, 164.751 )
 id = 102
@@ -77,5 +87,18 @@ rotation = 0.160388
 position = Vector2( 759.956, 519.83 )
 rotation = 0.181524
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 852.53, 289.314 )
+[node name="Door4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 869.848, 292.632 )
+id = 103
+
+[node name="Door5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 604.919, 513.835 )
+id = 106
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 471.855, 507.945 )
+
+[node name="Pig" parent="." instance=ExtResource( 8 )]
+position = Vector2( 380.286, 531.84 )
+MAX_SPEED = 35
+ACCELERATION = 25
