@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/entities/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/entities/JumpPig.gd" type="Script" id=2]
+[ext_resource path="res://assets/pig/Jump (34x28).png" type="Texture" id=3]
+[ext_resource path="res://src/entities/pig/death.tres" type="Animation" id=4]
+[ext_resource path="res://src/entities/pig/falling.tres" type="Animation" id=5]
+[ext_resource path="res://src/entities/pig/idle.tres" type="Animation" id=6]
+[ext_resource path="res://src/entities/pig/jumping.tres" type="Animation" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.8393, 10.5107 )
+
+[node name="JumpPig" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+MAX_SPEED = 50
+JUMP_FORCE = 165
+GRAVITY = 100
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2( 3.40561, 3.06506 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/death = ExtResource( 4 )
+anims/falling = ExtResource( 5 )
+anims/idle = ExtResource( 6 )
+anims/jumping = ExtResource( 7 )
