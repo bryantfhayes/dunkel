@@ -7,6 +7,7 @@ var _diamonds_collected = {}
 var _intro_message_complete = false
 var _first_diamond_complete = false
 var _first_king_interaction = false
+var _pickuped_boots = false
 
 # SPEAKERS
 var _speaker_king_brax = "King Brax"
@@ -20,6 +21,7 @@ var _dialog_first_king_interaction_0 = "Muhaha I see you are foolish enough to b
 var _dialog_first_king_interaction_1 = "I see YOU were foolish enough to kidnap my queen!"
 var _dialog_first_king_interaction_2 = "Prepare to die!"
 var _dialog_first_king_interaction_3 = "Yes, you should..."
+var _dialog_pickup_boots = "These boots are sticky! (you can now jump off walls)"
 
 func EVENT_intro_message():
 	if !_intro_message_complete:
@@ -40,6 +42,10 @@ func EVENT_first_king_interaction():
 								  {"message" : _dialog_first_king_interaction_3, "speaker" : _speaker_king_piggy}])
 		_first_king_interaction = true
 
+func EVENT_pickup_boots():
+	if !_pickuped_boots:
+		GameManager.show_message([{"message" : _dialog_pickup_boots, "speaker" : _speaker_king_brax}])
+		_pickuped_boots = true
 	
 func collect_diamond(id):
 	_diamonds_collected[id] = true

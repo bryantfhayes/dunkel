@@ -19,6 +19,7 @@ func take_damage(dmg):
 	health -= dmg
 	
 	if health < 0:
+		$DeathSoundFx.play()
 		GameManager.game_over()
 	
 # Override
@@ -44,7 +45,7 @@ func jump():
 		$JumpSoundFx.play()
 		velocity.y = -JUMP_FORCE
 		
-	if is_on_wall() and is_on_floor() == false and can_wall_jump:
+	if is_on_wall() and is_on_floor() == false and can_wall_jump and PlayerManager.has_boots:
 		velocity.y = -JUMP_FORCE
 		can_wall_jump = false
 
@@ -57,6 +58,10 @@ func end_jump():
 func attack():
 	$AttackSoundFx.play()
 	$AnimationPlayer.play("melee")
+	
+func pickup_boots():
+	# Player can now double jump!
+	PlayerManager.has_boots = true
 	
 func drop_bomb():
 	var scene = load("res://src/main/Bomb.tscn")

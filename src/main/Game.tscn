@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/main/Game.gd" type="Script" id=1]
 [ext_resource path="res://src/main/levels/Level0.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/tools/grid_drawer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/main/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/manaspc.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/sounds/Funky Chill loop.wav" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hud_death"
@@ -74,3 +75,8 @@ text = "YOU DIED."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -16.0
+autoplay = true

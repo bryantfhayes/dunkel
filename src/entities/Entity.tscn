@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/entities/Entity.gd" type="Script" id=1]
 [ext_resource path="res://assets/tiles/player.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/8bit_hit_6.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/8bit_jump_02.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/8bit_death_3.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.0393, 16.0989 )
@@ -46,3 +47,7 @@ volume_db = -15.0
 [node name="JumpSoundFx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 volume_db = -30.0
+
+[node name="DeathSoundFx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -15.0

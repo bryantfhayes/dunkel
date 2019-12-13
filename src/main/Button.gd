@@ -7,6 +7,7 @@ var _pressed = false
 func trigger_button():
 	_pressed = true
 	$AnimationPlayer.play("press")
+	$AudioStreamPlayer2D.play()
 	SignalManager.emit_signal("button_pressed", target_door)
 
 func _on_TriggerArea_body_entered(body):

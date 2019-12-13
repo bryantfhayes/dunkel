@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/ui/Big Diamond Idle (18x14).png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/manaspc.ttf" type="DynamicFontData" id=6]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "diamond"
 length = 10.0
 loop = true
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 6 )
 
@@ -60,13 +60,13 @@ hframes = 10
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DiamondCount/Diamond"]
 playback_default_blend_time = 10.4
 playback_speed = 4.6
-anims/diamond = SubResource( 2 )
+anims/diamond = SubResource( 1 )
 
 [node name="Label" type="Label" parent="DiamondCount"]
 margin_left = 663.0
 margin_top = 31.0
 margin_right = 812.0
 margin_bottom = 54.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "0000"
 align = 2

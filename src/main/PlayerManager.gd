@@ -16,6 +16,8 @@ var _health = DEFAULT_MAX_HEALTH
 var _strength = DEFAULT_MAX_ATTACK
 var _diamonds: int = DEFAULT_DIAMONDS
 
+var has_boots = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

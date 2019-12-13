@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/main/Button.gd" type="Script" id=1]
 [ext_resource path="res://assets/button/btn_up.png" type="Texture" id=2]
 [ext_resource path="res://assets/button/btn_dn.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/8bit_hit_4.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.1236, 9.85172 )
@@ -73,5 +74,9 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 25.0
 anims/press = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_TriggerArea_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_TriggerArea_body_exited"]
