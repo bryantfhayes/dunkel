@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/resources/decor.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/resources/bricks.tres" type="TileSet" id=2]
 [ext_resource path="res://src/main/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/main/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/main/Diamond.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/entities/JumpPig.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/main/Diamond.tscn" type="PackedScene" id=7]
 
 [node name="Level0" type="Node2D"]
 
@@ -41,16 +42,19 @@ color = Color( 0.392157, 0.392157, 0.392157, 1 )
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 439.765, 379.355 )
 
+[node name="JumpPig" parent="." instance=ExtResource( 6 )]
+position = Vector2( 334.977, 525.253 )
+
 [node name="Diamonds" type="Node2D" parent="."]
 
-[node name="Diamond" parent="Diamonds" instance=ExtResource( 6 )]
+[node name="Diamond" parent="Diamonds" instance=ExtResource( 7 )]
 position = Vector2( 180, 525 )
 id = 0
 
-[node name="Diamond2" parent="Diamonds" instance=ExtResource( 6 )]
+[node name="Diamond2" parent="Diamonds" instance=ExtResource( 7 )]
 position = Vector2( 220, 525 )
 id = 1
 
-[node name="Diamond3" parent="Diamonds" instance=ExtResource( 6 )]
+[node name="Diamond3" parent="Diamonds" instance=ExtResource( 7 )]
 position = Vector2( 260, 525 )
 id = 2

@@ -3,11 +3,14 @@ extends Entity
 
 var current_attack = 0
 var current_attack_damage = 5
+var damageable = true
+var timer
 
 func _ready():
 	flip_dir_inverted = true
 	sprite_flip_left_offset = -15
 	controller = PlayerController.new()
+	timer = get_node("Timer")
 	
 func _process(delta):
 	._process(delta)
@@ -20,6 +23,9 @@ func take_damage(dmg):
 	
 	if health < 0:
 		GameManager.game_over()
+	damageable = false
+	print(damageable)
+	timer.start(1)
 	
 # Override
 func move(dir):
@@ -75,3 +81,9 @@ func _on_Area2D_body_entered(body):
 	var enemy := body as Enemy
 	if enemy != null:
 		enemy.take_damage(current_attack_damage)
+
+
+func _on_Timer_timeout():
+	damageable = true
+	print(damageable)
+	pass # Replace with function body.

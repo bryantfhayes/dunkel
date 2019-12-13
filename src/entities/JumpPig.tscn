@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/entities/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/entities/JumpPig.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.8393, 10.5107 )
+
+[sub_resource type="Animation" id=2]
+resource_local_to_scene = true
+
+[node name="JumpPig" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+MAX_SPEED = 50
+GRAVITY = 100
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2( 3.40561, 3.06506 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/idle = SubResource( 2 )

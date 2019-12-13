@@ -367,7 +367,7 @@ tracks/3/keys = {
 "values": [ 9.0 ]
 }
 
-[node name="Player" instance=ExtResource( 1 )]
+[node name="Player" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 MAX_SPEED = 300
 JUMP_FORCE = 600
@@ -415,5 +415,8 @@ editor_draw_drag_margin = true
 
 [node name="JumpSoundFx" parent="." index="6"]
 volume_db = -35.0
+
+[node name="Timer" type="Timer" parent="." index="7"]
 [connection signal="area_entered" from="MeleeArea" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="MeleeArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

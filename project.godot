@@ -39,6 +39,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/entities/EntityController.gd"
 }, {
+"base": "Enemy",
+"class": "JumpPig",
+"language": "GDScript",
+"path": "res://src/entities/JumpPig.gd"
+}, {
+"base": "EntityController",
+"class": "JumpPigController",
+"language": "GDScript",
+"path": "res://src/entities/JumpPigController.gd"
+}, {
 "base": "EntityController",
 "class": "NPCController",
 "language": "GDScript",
@@ -71,6 +81,8 @@ _global_script_class_icons={
 "Enemy": "",
 "Entity": "",
 "EntityController": "",
+"JumpPig": "",
+"JumpPigController": "",
 "NPCController": "",
 "Pig": "",
 "PigKing": "",

@@ -1,7 +1,5 @@
-class_name Pig
+class_name JumpPig
 extends Enemy
-
-var attack_damage = 5
 
 func _init():
 	health = 10
@@ -9,7 +7,7 @@ func _init():
 func _ready():
 	flip_dir_inverted = false
 	sprite_flip_right_offset = 6
-	controller = DumbPigController.new()
+	controller = JumpPigController.new()
 	
 func _process(delta):
 	._process(delta)
@@ -20,11 +18,18 @@ func move(dir):
 	
 # Override
 func jump():
-	pass
+	if is_on_floor():
+		$JumpSoundFx.play()
+		velocity.y = -JUMP_FORCE
+		
+	if is_on_wall() and is_on_floor() == false and can_wall_jump:
+		velocity.y = -JUMP_FORCE
+		can_wall_jump = false
 
 # Override
 func end_jump():
-	pass
+	if velocity.y < MIN_JUMP_HEIGHT:
+		velocity.y = MIN_JUMP_HEIGHT
 	
 # Override
 func attack():
@@ -45,8 +50,3 @@ func take_damage(amount):
 		
 		if health <= 0:
 			die()
-
-func _on_Area2D_body_entered(body):
-	var player := body as Player
-	if player != null and dead == false:
-		player.take_damage(attack_damage)
