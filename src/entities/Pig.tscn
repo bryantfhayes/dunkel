@@ -96,9 +96,9 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 9.45532, 9.82956 )
+extents = Vector2( 13.5421, 11.8729 )
 
-[node name="Pig" instance=ExtResource( 1 )]
+[node name="Pig" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]

@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/player/Run (78x58).png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10.1663, 16.8136 )
+extents = Vector2( 10.7067, 16.2732 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 27.1642, 26.7262 )

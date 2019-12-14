@@ -12,7 +12,7 @@
 extents = Vector2( 11.8393, 10.5107 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.43363, 10.1701 )
+extents = Vector2( 13.8826, 12.8946 )
 
 [node name="JumpPig" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

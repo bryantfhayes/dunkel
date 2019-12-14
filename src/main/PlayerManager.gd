@@ -40,4 +40,5 @@ func set_health(hearts):
 	
 func reset():
 	_diamonds = 0
+	_hearts = DEFAULT_MAX_HEALTH
 	
