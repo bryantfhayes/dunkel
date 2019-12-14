@@ -1,6 +1,8 @@
 class_name JumpPig
 extends Enemy
 
+var attack_damage = 1
+
 func _init():
 	health = 10
 
@@ -50,3 +52,8 @@ func take_damage(amount):
 		
 		if health <= 0:
 			die()
+
+func _on_Area2D_body_entered(body):
+	var player := body as Player
+	if player != null and dead == false:
+		player.take_damage(attack_damage)

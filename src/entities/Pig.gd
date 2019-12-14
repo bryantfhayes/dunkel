@@ -1,7 +1,7 @@
 class_name Pig
 extends Enemy
 
-var attack_damage = 5
+var attack_damage = 1
 
 func _init():
 	health = 10

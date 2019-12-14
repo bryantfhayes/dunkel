@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.94652, 8.63151 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "hit"
 length = 2.0
 step = 1.0
@@ -53,9 +53,9 @@ tracks/2/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 length = 6.0
 step = 1.0
 tracks/0/type = "value"
@@ -95,7 +95,8 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 9.45532, 9.82956 )
 
 [node name="Pig" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -113,15 +114,15 @@ shape = SubResource( 1 )
 playback_speed = 7.0
 anims/death = ExtResource( 4 )
 anims/falling = ExtResource( 5 )
-anims/hit = SubResource( 4 )
+anims/hit = SubResource( 2 )
 anims/idle = ExtResource( 7 )
 anims/jumping = ExtResource( 8 )
-anims/melee = SubResource( 6 )
-anims/running = SubResource( 7 )
+anims/melee = SubResource( 3 )
+anims/running = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="." index="5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2( 4.08673, 5.10843 )
-shape = SubResource( 8 )
+position = Vector2( 3.06506, 4.08675 )
+shape = SubResource( 5 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

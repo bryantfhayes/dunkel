@@ -7,6 +7,7 @@ var damageable = true
 var timer
 
 func _ready():
+	health = 3
 	flip_dir_inverted = true
 	sprite_flip_left_offset = -15
 	controller = PlayerController.new()
@@ -20,8 +21,10 @@ func take_damage(dmg):
 	.take_damage(dmg)
 	print("Ouch!")
 	health -= dmg
+	PlayerManager.set_health(health)
 	
-	if health < 0:
+	
+	if health <= 0:
 		$DeathSoundFx.play()
 		GameManager.game_over()
 	damageable = false
