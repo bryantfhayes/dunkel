@@ -18,3 +18,4 @@ func _on_TriggerArea_body_entered(body):
 
 func _on_TriggerArea_body_exited(body):
 	pass
+	
