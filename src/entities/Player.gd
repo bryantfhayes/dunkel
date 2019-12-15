@@ -19,18 +19,16 @@ func _process(delta):
 # Override
 func take_damage(dmg):
 	.take_damage(dmg)
-	print("Ouch!")
-	$AnimationPlayer.play("hit")
-	health -= dmg
-	PlayerManager.set_health(health)
-	
+	if damageable:
+		$AnimationPlayer.play("hit")
+		health -= dmg
+		PlayerManager.set_health(health)
+		damageable = false
+		timer.start(1)
 	
 	if health <= 0:
 		$DeathSoundFx.play()
 		GameManager.game_over()
-	damageable = false
-	print(damageable)
-	timer.start(1)
 	
 # Override
 func move(dir):

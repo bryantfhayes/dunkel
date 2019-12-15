@@ -181,3 +181,4 @@ position = Vector2( -13.1138, 3.80519 )
 shape = SubResource( 6 )
 disabled = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="MeleeArea" to="." method="_on_Area2D_body_entered"]
