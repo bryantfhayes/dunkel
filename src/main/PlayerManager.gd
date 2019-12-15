@@ -19,10 +19,6 @@ var _diamonds: int = DEFAULT_DIAMONDS
 var _hearts: int = DEFAULT_HEARTS
 
 var has_boots = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 	
 func get_diamond_count():
 	return _diamonds
@@ -39,6 +35,7 @@ func set_health(hearts):
 	emit_signal("update_hud")
 	
 func reset():
-	_diamonds = 0
-	_hearts = DEFAULT_MAX_HEALTH
+	has_boots = false
+	_diamonds = DEFAULT_DIAMONDS
+	set_health(DEFAULT_HEARTS)
 	

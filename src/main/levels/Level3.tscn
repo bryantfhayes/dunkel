@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/main/levels/Level3.gd" type="Script" id=1]
 [ext_resource path="res://assets/resources/decor.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/entities/PigKing.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/entities/Pig.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/main/Box.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/main/Button.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 89.6523 )
@@ -134,5 +135,9 @@ position = Vector2( 435, 1049 )
 
 [node name="Box4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 435, 1033 )
+
+[node name="Button" parent="." instance=ExtResource( 10 )]
+position = Vector2( 666, 1072 )
+target_door = 7
 [connection signal="body_entered" from="KingInteraction_0" to="." method="_on_KingInteraction_0_body_entered"]
 [connection signal="body_exited" from="KingInteraction_0" to="." method="_on_KingInteraction_0_body_exited"]

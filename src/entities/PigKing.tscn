@@ -4,13 +4,12 @@
 [ext_resource path="res://src/entities/PigKing.gd" type="Script" id=2]
 [ext_resource path="res://assets/pigking/Idle (38x28).png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.65682, 9.31711 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "falling"
-
 [sub_resource type="Animation" id=2]
+
+[sub_resource type="Animation" id=3]
 resource_local_to_scene = true
 length = 12.0
 step = 1.0
@@ -63,13 +62,11 @@ tracks/3/keys = {
 "values": [ 7.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "jumping"
-
 [sub_resource type="Animation" id=4]
-resource_name = "melee"
 
 [sub_resource type="Animation" id=5]
+
+[sub_resource type="Animation" id=6]
 
 [node name="PigKing" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -81,12 +78,12 @@ frame = 11
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 1.06624, 4.39037 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 playback_speed = 7.0
-anims/falling = SubResource( 1 )
-anims/idle = SubResource( 2 )
-anims/jumping = SubResource( 3 )
-anims/melee = SubResource( 4 )
-anims/running = SubResource( 5 )
+anims/falling = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/jumping = SubResource( 4 )
+anims/melee = SubResource( 5 )
+anims/running = SubResource( 6 )

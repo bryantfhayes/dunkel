@@ -21,15 +21,13 @@ func take_damage(dmg):
 	.take_damage(dmg)
 	print("Ouch!")
 	$AnimationPlayer.play("hit")
-	health -= dmg
-	PlayerManager.set_health(health)
+	PlayerManager.set_health(PlayerManager.get_heart_count() - dmg)
 	
-	
-	if health <= 0:
+	if PlayerManager.get_heart_count() <= 0:
 		$DeathSoundFx.play()
 		GameManager.game_over()
 	damageable = false
-	print(damageable)
+
 	timer.start(1)
 	
 # Override

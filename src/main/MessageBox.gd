@@ -8,6 +8,7 @@ var _message_index = 0
 var _messages = []
 var current_conversation = null
 export(float) var character_speed = 0.06
+var init_done = false
 
 onready var bg = get_node("background_box")
 onready var textlbl = get_node("background_box/text_label")
@@ -53,6 +54,8 @@ func init(messages):
 	# Set size of text_label
 	textlbl.rect_position = Vector2(inner_margin, inner_margin)
 	textlbl.rect_size = bg.rect_size - Vector2(h_margin, v_margin)
+	
+	init_done = true
 
 func new_message():
 	textlbl.set_text(_messages[_message_index]["message"])
@@ -84,6 +87,9 @@ func update():
 # Poll for user input to continue message box
 #
 func poll_inputs():
+	if init_done == false:
+		return
+		
 	if Input.is_action_just_pressed("ui_accept"):
 		if textlbl.get_visible_characters() == 0:
 			# If no characters are availble yet, ignore ENTER. This accounts for

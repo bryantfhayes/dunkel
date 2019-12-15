@@ -99,6 +99,8 @@ tracks/2/keys = {
 extents = Vector2( 13.5421, 11.8729 )
 
 [node name="Pig" instance=ExtResource( 1 )]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]

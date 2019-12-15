@@ -10,7 +10,8 @@ var door_map = {
 	4 : { "level" : 2, "target_door" : 3 },
 	5 : { "level" : 2, "target_door" : 6 },
 	6 : { "level" : 3, "target_door" : 5 },
-	7 : { "level" : 3, "target_door" : 8 },
+	7 : { "level" : 3, "target_door" : 100 },
+	100 : { "level" : 4, "target_door" : 7},
 	101 : { "level" : 4, "target_door" : 102},
 	102 : { "level" : 4, "target_door" : 101},
 	103 : { "level" : 4, "target_door" : 104}, 
@@ -26,8 +27,6 @@ func game_over():
 	var game = get_tree().get_root().get_node("Game")
 	pause_game()
 	game.game_over()
-	PlayerManager.reset()
-	Events.reset()
 	yield(game.get_node("HUD/AnimationPlayer"), "animation_finished")
 	goto_main_menu()
 

@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/pig/Jump (34x28).png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11.8393, 10.5107 )
+extents = Vector2( 8.70257, 8.68593 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "death"
@@ -243,7 +243,9 @@ resource_name = "melee"
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 13.8826, 12.8946 )
 
-[node name="JumpPig" instance=ExtResource( 1 )]
+[node name="JumpPig" index="0" instance=ExtResource( 1 )]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 2 )
 MAX_SPEED = 50
 JUMP_FORCE = 165
@@ -254,8 +256,7 @@ texture = ExtResource( 3 )
 hframes = 11
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
-position = Vector2( 3.40561, 3.06506 )
+position = Vector2( 3.13999, 5.01294 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="2"]
@@ -273,4 +274,7 @@ anims/running = SubResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2( 3.06506, 3.74619 )
 shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

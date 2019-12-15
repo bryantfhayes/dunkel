@@ -4,6 +4,8 @@ var _current_level_id = 0
 var _last_used_door = 0
 
 func _ready():
+	PlayerManager.reset()
+	Events.reset()
 	load_level(_current_level_id, _last_used_door)
 
 func game_over():

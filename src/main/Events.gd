@@ -4,10 +4,12 @@ extends Node
 var _diamonds_collected = {}
 
 # EVENTS
-var _intro_message_complete = false
-var _first_diamond_complete = false
-var _first_king_interaction = false
-var _pickuped_boots = false
+var events: Dictionary = {
+	"intro_message_complete" : false,
+	"first_diamond_complete" : false,
+	"first_king_interaction" : false,
+	"pickedup_boots" : false,
+}
 
 # SPEAKERS
 var _speaker_king_brax = "King Brax"
@@ -24,28 +26,28 @@ var _dialog_first_king_interaction_3 = "Yes, you should..."
 var _dialog_pickup_boots = "These boots are sticky! (you can now jump off walls)"
 
 func EVENT_intro_message():
-	if !_intro_message_complete:
+	if !events["intro_message_complete"]:
 		GameManager.show_message([{"message" : _dialog_intro_message_0, "speaker" : _speaker_king_brax, "sound" : "dialog_intro_message_0.wav"},
 											  {"message" : _dialog_intro_message_1, "speaker" : _speaker_king_brax, "sound" : "dialog_intro_message_1.wav"}])
-		_intro_message_complete = true
+		events["intro_message_complete"] = true
 
 func EVENT_first_diamond():
-	if !_first_diamond_complete:
+	if !events["first_diamond_complete"]:
 		GameManager.show_message([{"message" : _dialog_first_diamond_0, "speaker" : _speaker_king_brax, "sound" : "dialog_first_diamond_0.wav"}])
-		_first_diamond_complete = true
+		events["first_diamond_complete"] = true
 		
 func EVENT_first_king_interaction():
-	if !_first_king_interaction:
+	if !events["first_king_interaction"]:
 		GameManager.show_message([{"message" : _dialog_first_king_interaction_0, "speaker" : _speaker_king_piggy, "sound" : "dialog_first_king_interaction_0.wav"},
 		                          {"message" : _dialog_first_king_interaction_1, "speaker" : _speaker_king_brax, "sound" : "dialog_first_king_interaction_1.wav"},
 								  {"message" : _dialog_first_king_interaction_2, "speaker" : _speaker_king_brax, "sound" : "dialog_first_king_interaction_2.wav"},
 								  {"message" : _dialog_first_king_interaction_3, "speaker" : _speaker_king_piggy, "sound" : "dialog_first_king_interaction_3.wav"}])
-		_first_king_interaction = true
+		events["first_king_interaction"] = true
 
 func EVENT_pickup_boots():
-	if !_pickuped_boots:
+	if !events["pickedup_boots"]:
 		GameManager.show_message([{"message" : _dialog_pickup_boots, "speaker" : _speaker_king_brax, "sound" : "dialog_pickup_boots.wav"}])
-		_pickuped_boots = true
+		events["pickedup_boots"] = true
 	
 func collect_diamond(id):
 	_diamonds_collected[id] = true
@@ -57,5 +59,5 @@ func is_diamond_already_collected(id):
 	
 func reset():
 	_diamonds_collected = {}
-	_intro_message_complete = true
-	_first_diamond_complete = true
+	for event in events:
+		events[event] = false
