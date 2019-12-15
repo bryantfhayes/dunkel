@@ -25,16 +25,15 @@ download_if_not_exist() {
     fi
 }
 
-
-project="bryantfhayes/dunkel"
+project="slagathor-ld/$GAME_NAME"
 
 # make sure ENV is setup and ./butler is installed
 prepare_butler
 
-prepare_and_push $project "dunkel-windows.zip" "windows" 
-prepare_and_push $project "dunkel-mac.zip" "mac" 
-prepare_and_push $project "dunkel-linux.zip" "linux" 
-prepare_and_push $project "dunkel-html5.zip" "html5" 
+prepare_and_push $project "$GAME_NAME-windows-$TRAVIS_TAG.zip" "windows" 
+prepare_and_push $project "$GAME_NAME-mac-$TRAVIS_TAG.zip" "mac" 
+prepare_and_push $project "$GAME_NAME-linux-$TRAVIS_TAG.zip" "linux" 
+prepare_and_push $project "$GAME_NAME-html5-$TRAVIS_TAG.zip" "html5" 
 
 echo "Done."
 exit 0

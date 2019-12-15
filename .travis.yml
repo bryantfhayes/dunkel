@@ -28,10 +28,10 @@ script:
 # This creates zip files from the exported game builds for the
 # three desktop platforms
 before_deploy:
-- zip -j "${GAME_NAME}-linux.zip"   output/linux/*
-- zip -j "${GAME_NAME}-windows.zip" output/windows/*
-- zip -j "${GAME_NAME}-mac.zip" output/mac/*
-- zip -j "${GAME_NAME}-html5.zip" output/html5/*
+- zip -j "${GAME_NAME}-linux-${TRAVIS_TAG}.zip"   output/linux/*
+- zip -j "${GAME_NAME}-windows-${TRAVIS_TAG}.zip" output/windows/*
+- zip -j "${GAME_NAME}-mac-${TRAVIS_TAG}.zip" output/mac/*
+- zip -j "${GAME_NAME}-html5-${TRAVIS_TAG}.zip" output/html5/*
 
 deploy:
 # The following block is responsible to upload the zip files
@@ -41,10 +41,10 @@ deploy:
   skip-cleanup: true
   api_key: $GITHUB_TOKEN
   file:
-    - "${GAME_NAME}-linux.zip"
-    - "${GAME_NAME}-windows.zip"
-    - "${GAME_NAME}-mac.zip"
-    - "${GAME_NAME}-html5.zip"
+    - "${GAME_NAME}-linux-${TRAVIS_TAG}.zip"
+    - "${GAME_NAME}-windows-${TRAVIS_TAG}.zip"
+    - "${GAME_NAME}-mac-${TRAVIS_TAG}.zip"
+    - "${GAME_NAME}-html5-${TRAVIS_TAG}.zip"
   on:
     # Create GitHub Releases for new git tags
     # regardless of the branch.
@@ -68,7 +68,7 @@ deploy:
 - provider: script
   skip-cleanup: true
   # Deploy latest to itch.io using the tag as version string
-  script: bash scripts/deploy.sh $TRAVIS_TAG
+  script: bash scripts/deploy.sh
   on:
     all_branches: true
     tags: true

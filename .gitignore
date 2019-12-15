@@ -7,4 +7,5 @@ output/
 .mono/
 data_*/
 
+butler
 .DS_Store
