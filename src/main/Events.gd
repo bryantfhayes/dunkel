@@ -25,26 +25,26 @@ var _dialog_pickup_boots = "These boots are sticky! (you can now jump off walls)
 
 func EVENT_intro_message():
 	if !_intro_message_complete:
-		GameManager.show_message([{"message" : _dialog_intro_message_0, "speaker" : _speaker_king_brax},
-											  {"message" : _dialog_intro_message_1, "speaker" : _speaker_king_brax}])
+		GameManager.show_message([{"message" : _dialog_intro_message_0, "speaker" : _speaker_king_brax, "sound" : "dialog_intro_message_0.wav"},
+											  {"message" : _dialog_intro_message_1, "speaker" : _speaker_king_brax, "sound" : "dialog_intro_message_1.wav"}])
 		_intro_message_complete = true
 
 func EVENT_first_diamond():
 	if !_first_diamond_complete:
-		GameManager.show_message([{"message" : _dialog_first_diamond_0, "speaker" : _speaker_king_brax}])
+		GameManager.show_message([{"message" : _dialog_first_diamond_0, "speaker" : _speaker_king_brax, "sound" : "dialog_first_diamond_0.wav"}])
 		_first_diamond_complete = true
 		
 func EVENT_first_king_interaction():
 	if !_first_king_interaction:
-		GameManager.show_message([{"message" : _dialog_first_king_interaction_0, "speaker" : _speaker_king_piggy},
-		                          {"message" : _dialog_first_king_interaction_1, "speaker" : _speaker_king_brax},
-								  {"message" : _dialog_first_king_interaction_2, "speaker" : _speaker_king_brax},
-								  {"message" : _dialog_first_king_interaction_3, "speaker" : _speaker_king_piggy}])
+		GameManager.show_message([{"message" : _dialog_first_king_interaction_0, "speaker" : _speaker_king_piggy, "sound" : "dialog_first_king_interaction_0.wav"},
+		                          {"message" : _dialog_first_king_interaction_1, "speaker" : _speaker_king_brax, "sound" : "dialog_first_king_interaction_1.wav"},
+								  {"message" : _dialog_first_king_interaction_2, "speaker" : _speaker_king_brax, "sound" : "dialog_first_king_interaction_2.wav"},
+								  {"message" : _dialog_first_king_interaction_3, "speaker" : _speaker_king_piggy, "sound" : "dialog_first_king_interaction_3.wav"}])
 		_first_king_interaction = true
 
 func EVENT_pickup_boots():
 	if !_pickuped_boots:
-		GameManager.show_message([{"message" : _dialog_pickup_boots, "speaker" : _speaker_king_brax}])
+		GameManager.show_message([{"message" : _dialog_pickup_boots, "speaker" : _speaker_king_brax, "sound" : "dialog_pickup_boots.wav"}])
 		_pickuped_boots = true
 	
 func collect_diamond(id):

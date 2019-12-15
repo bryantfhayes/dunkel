@@ -2,6 +2,8 @@ extends Node
 
 var MessageBox = preload("res://src/main/MessageBox.tscn")
 
+var _speech_player
+
 var door_map = {
 	0 : { "level" : 0, "target_door" : 1 },
 	1 : { "level" : 0, "target_door" : 2 },
@@ -33,6 +35,13 @@ func game_over():
 
 func _ready():
 	print("Game Manager Init")
+	_speech_player = AudioStreamPlayer.new()
+	add_child(_speech_player)
+
+func play_speech(file):
+	if File.new().file_exists(file):
+	    _speech_player.stream = load(file)
+	    _speech_player.play()
 
 #
 # Called whenever a message box is completed

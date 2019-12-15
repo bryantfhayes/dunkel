@@ -41,10 +41,8 @@ func init(messages):
 	_message_index = 0
 	timer.wait_time = character_speed
 	timer.start()
-	textlbl.set_text(_messages[_message_index]["message"])
-	textlbl.set_visible_characters(0)
 	
-	display_speaker(_messages[_message_index])
+	new_message()
 
 	# Set position and size of background_box
 	var viewport_size = get_viewport().size
@@ -55,6 +53,15 @@ func init(messages):
 	# Set size of text_label
 	textlbl.rect_position = Vector2(inner_margin, inner_margin)
 	textlbl.rect_size = bg.rect_size - Vector2(h_margin, v_margin)
+
+func new_message():
+	textlbl.set_text(_messages[_message_index]["message"])
+	textlbl.set_visible_characters(0)
+	
+	display_speaker(_messages[_message_index])
+	
+	var audio_file = "res://assets/sounds/dialog/%s" % _messages[_message_index]["sound"]
+	GameManager.play_speech(audio_file)
 
 #
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -90,9 +97,7 @@ func poll_inputs():
 			textlbl.set_visible_characters(textlbl.get_total_character_count())
 		elif _message_index < (len(_messages) - 1):
 			_message_index += 1
-			display_speaker(_messages[_message_index])
-			textlbl.set_text(_messages[_message_index]["message"])
-			textlbl.set_visible_characters(0)
+			new_message()
 		else:
 			message_complete()
 
