@@ -17,6 +17,20 @@ func _process(delta):
 # Override
 func move(dir):
 	.move(dir)
+	if dir == Dir.Left:
+		var attack_node = get_node("MeleeArea")
+		if attack_node != null:
+			attack_node.set_scale(Vector2(1,1))
+			attack_node.position.x = sprite_flip_left_offset
+
+	elif dir == Dir.Right:
+		var attack_node = get_node("MeleeArea")
+		if attack_node != null:
+			attack_node.set_scale(Vector2(-1,1))
+			attack_node.position.x = sprite_flip_right_offset
+	yield(get_node("AnimationPlayer"), "animation_finished")
+	print("attack!")
+	$AnimationPlayer.play("melee")
 	
 # Override
 func jump():
@@ -28,6 +42,8 @@ func end_jump():
 	
 # Override
 func attack():
+	#print("attack!")
+	#$AnimationPlayer.play("melee")
 	pass
 	
 func die():

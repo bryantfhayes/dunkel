@@ -5,7 +5,9 @@ class_name DumbPigController
 extends EntityController
 
 var movement_timeout = 2
+var attack_timeout = 3
 var time_since_last_mode = 0
+var time_since_last_attack = 0
 var direction = Dir.None
 
 func _init():
@@ -26,6 +28,11 @@ func random_direction():
 
 func process(entity, delta) -> void:
 	time_since_last_mode += delta
+	time_since_last_attack += delta
 	if time_since_last_mode > movement_timeout:
 		entity.move(random_direction())
 		time_since_last_mode = 0
+	
+	if time_since_last_attack > attack_timeout:
+		#entity.attack()
+		time_since_last_attack = 0

@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/entities/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/entities/Pig.gd" type="Script" id=2]
-[ext_resource path="res://assets/pig/Run (34x28).png" type="Texture" id=3]
+[ext_resource path="res://assets/pig/Attack (34x28).png" type="Texture" id=3]
 [ext_resource path="res://src/entities/pig/death.tres" type="Animation" id=4]
 [ext_resource path="res://src/entities/pig/falling.tres" type="Animation" id=5]
 [ext_resource path="res://assets/pig/Hit (34x28).png" type="Texture" id=6]
 [ext_resource path="res://src/entities/pig/idle.tres" type="Animation" id=7]
 [ext_resource path="res://src/entities/pig/jumping.tres" type="Animation" id=8]
+[ext_resource path="res://assets/pig/Run (34x28).png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.94652, 8.63151 )
@@ -54,6 +55,55 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeleeArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 6.0
@@ -68,7 +118,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -98,13 +148,15 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 13.5421, 11.8729 )
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 13.374, 10.5697 )
+
 [node name="Pig" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
-hframes = 6
-frame = 5
+hframes = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 3.01035, 5.04678 )
@@ -125,4 +177,11 @@ anims/running = SubResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2( 3.06506, 4.08675 )
 shape = SubResource( 5 )
+
+[node name="MeleeArea" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeArea" index="0"]
+position = Vector2( -13.1138, 3.80519 )
+shape = SubResource( 6 )
+disabled = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
