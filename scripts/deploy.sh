@@ -15,8 +15,8 @@ prepare_butler() {
 }
 
 prepare_and_push() {
-    echo "Push $3 build to itch.io..."
-    ./butler push $2 $1:$3
+    echo "./butler push $2 $1:$3 --userversion $TRAVIS_TAG"
+    ./butler push $2 $1:$3 --userversion $TRAVIS_TAG
 }
 
 download_if_not_exist() {
