@@ -1,6 +1,6 @@
 extends Node2D
 
-enum eSelectedButton { NewGame, Continue, Quit }
+enum eSelectedButton { NewGame, Quit }
 enum eButtonMovement { Up, Down }
 
 const POINTER_OFFSET = 10
@@ -44,21 +44,14 @@ func select_button():
 	if _selected_button == eSelectedButton.NewGame:
 		var sound_fx: AudioStreamPlayer2D = get_node("select_sound_fx")
 		sound_fx.play()
-		get_node("new_game_button").set_normal_texture(load("res://assets/ui/pressed_new_game_button.png"))
+		get_node("new_game_button").set_normal_texture(load("res://assets/ui/play_button_pressed.png"))
 		yield(get_tree().create_timer(BUTTON_PRESS_TIMEOUT), "timeout")
-		get_node("new_game_button").set_normal_texture(load("res://assets/new_game_button.png"))
+		get_node("new_game_button").set_normal_texture(load("res://assets/ui/play_button.png"))
 		new_game()
-	elif _selected_button == eSelectedButton.Continue:
-		var sound_fx: AudioStreamPlayer2D = get_node("error_sound_fx")
-		sound_fx.play()
-		get_node("continue_button").set_normal_texture(load("res://assets/ui/pressed_continue_button.png"))
-		yield(get_tree().create_timer(BUTTON_PRESS_TIMEOUT), "timeout")
-		get_node("continue_button").set_normal_texture(load("res://assets/ui/continue_button.png"))
-		continue_game()
 	elif _selected_button == eSelectedButton.Quit:
 		var sound_fx: AudioStreamPlayer2D = get_node("select_sound_fx")
 		sound_fx.play()
-		get_node("quit_button").set_normal_texture(load("res://assets/ui/pressed_quit_button.png"))
+		get_node("quit_button").set_normal_texture(load("res://assets/ui/quit_button_pressed.png"))
 		yield(get_tree().create_timer(BUTTON_PRESS_TIMEOUT), "timeout")
 		get_node("quit_button").set_normal_texture(load("res://assets/ui/quit_button.png"))
 		quit_game()
@@ -72,19 +65,16 @@ func move_selected(direction):
 	elif direction == eButtonMovement.Down:
 		_selected_button += 1
 	
-	# Constrain to 0, 1, and 2
-	_selected_button = clamp(_selected_button, 0, 2)
+	# Constrain to 0 to 1
+	_selected_button = clamp(_selected_button, 0, 1)
 	
 	if _selected_button == eSelectedButton.NewGame:
 		_active_pointer = "pointer_new_game"
-	elif _selected_button == eSelectedButton.Continue:
-		_active_pointer = "pointer_continue"
 	elif _selected_button == eSelectedButton.Quit:
 		_active_pointer = "pointer_quit"
 
 	# Turn off all pointers
 	get_node("pointer_new_game").visible = false
-	get_node("pointer_continue").visible = false
 	get_node("pointer_quit").visible = false
 
 	# Then turn on the active one

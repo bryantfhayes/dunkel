@@ -61,7 +61,7 @@ func new_message():
 	display_speaker(_messages[_message_index])
 	
 	var audio_file = "res://assets/sounds/dialog/%s" % _messages[_message_index]["sound"]
-	GameManager.play_speech(audio_file)
+	MusicController.play_track(audio_file)
 
 #
 # Called every frame. 'delta' is the elapsed time since the previous frame.

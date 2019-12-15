@@ -20,6 +20,7 @@ func _process(delta):
 func take_damage(dmg):
 	.take_damage(dmg)
 	print("Ouch!")
+	$AnimationPlayer.play("hit")
 	health -= dmg
 	PlayerManager.set_health(health)
 	

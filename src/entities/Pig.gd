@@ -32,6 +32,8 @@ func attack():
 	
 func die():
 	dead = true
+	self.set_collision_mask(2)
+	self.set_collision_layer(2)
 	$AnimationPlayer.play("death")
 	yield(get_node("AnimationPlayer"), "animation_finished")
 	self.queue_free()

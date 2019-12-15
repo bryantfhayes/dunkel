@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pressed_continue_button.png-292cdaacf9275355e335f3f26e5883b4.stex"
+path="res://.import/quit_button_pressed.png-fe52bfff904e5597123e4f37bb938e19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/pressed_continue_button.png"
-dest_files=[ "res://.import/pressed_continue_button.png-292cdaacf9275355e335f3f26e5883b4.stex" ]
+source_file="res://assets/ui/quit_button_pressed.png"
+dest_files=[ "res://.import/quit_button_pressed.png-fe52bfff904e5597123e4f37bb938e19.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
