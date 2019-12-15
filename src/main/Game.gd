@@ -54,6 +54,12 @@ func remove_collectibles(level):
 		for diamond in diamonds.get_children():
 			if Events.is_diamond_already_collected(diamond.id):
 				diamond.queue_free()
+				
+	var boots = level.get_node("Boots")
+	if boots:
+		if PlayerManager.has_boots:
+			boots.queue_free()
+				
 
 func load_level(level_id, door_id):
 	_current_level_id = level_id

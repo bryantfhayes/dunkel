@@ -16,8 +16,11 @@ var door_map = {
 	102 : { "level" : 4, "target_door" : 101},
 	103 : { "level" : 4, "target_door" : 104}, 
 	104 : { "level" : 5, "target_door" : 103},
+	105 : { "level" : 5, "target_door" : 108},
 	106 : { "level" : 4, "target_door" : 107},
-	107 : { "level" : 6, "target_door" : 106}
+	107 : { "level" : 6, "target_door" : 106},
+	108 : { "level" : 6, "target_door" : 105},
+	109 : { "level" : 7, "target_door" : 108}
 }
 
 func goto_main_menu():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/resources/decor.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/resources/bricks.tres" type="TileSet" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://src/main/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/main/Diamond.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/main/Boots.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/entities/JumpPig.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/entities/JumpPig.tscn" type="PackedScene" id=7]
 
 [node name="Level0" type="Node2D"]
 
@@ -60,8 +59,5 @@ id = 1
 position = Vector2( 210.744, 526.822 )
 id = 2
 
-[node name="Boots" parent="." instance=ExtResource( 7 )]
-position = Vector2( 303.562, 461.665 )
-
-[node name="JumpPig" parent="." instance=ExtResource( 8 )]
+[node name="JumpPig" parent="." instance=ExtResource( 7 )]
 position = Vector2( 259.925, 528.908 )

@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/resources/decor.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/resources/bricks.tres" type="TileSet" id=2]
 [ext_resource path="res://src/main/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/main/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/entities/Pig.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/entities/JumpPig.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/main/Diamond.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/entities/Pig.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/entities/JumpPig.tscn" type="PackedScene" id=8]
 
 [node name="Level2" type="Node2D"]
 
@@ -48,11 +49,15 @@ position = Vector2( 669.941, 416.511 )
 
 [node name="Diamonds" type="Node2D" parent="."]
 
-[node name="Pig" parent="." instance=ExtResource( 6 )]
+[node name="Diamond" parent="Diamonds" instance=ExtResource( 6 )]
+position = Vector2( 398.79, 402.543 )
+id = 111
+
+[node name="Pig" parent="." instance=ExtResource( 7 )]
 position = Vector2( 540.246, 529.054 )
 MAX_SPEED = 25
 ACCELERATION = 10
 DECELERATION = 10
 
-[node name="JumpPig" parent="." instance=ExtResource( 7 )]
+[node name="JumpPig" parent="." instance=ExtResource( 8 )]
 position = Vector2( 403.188, 526.645 )
