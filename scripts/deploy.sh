@@ -31,7 +31,6 @@ project="slagathor-ld/$GAME_NAME"
 prepare_butler
 
 prepare_and_push $project "$GAME_NAME-windows-$TRAVIS_TAG.zip" "windows" 
-prepare_and_push $project "$GAME_NAME-mac-$TRAVIS_TAG.zip" "mac" 
 prepare_and_push $project "$GAME_NAME-linux-$TRAVIS_TAG.zip" "linux" 
 prepare_and_push $project "$GAME_NAME-html5-$TRAVIS_TAG.zip" "html5" 
 
