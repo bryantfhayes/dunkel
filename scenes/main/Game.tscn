@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/main/Game.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/Level0.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/common/tools/grid_drawer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/common/assets/fonts/manaspc.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/common/sounds/Funky Chill loop.wav" type="AudioStream" id=6]
+
+
+
+
+
+
+
+
+
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "hud_death"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.239216, 0.0431373, 0.0431373, 0 ), Color( 0.239216, 0.0431373, 0.0431373, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 5 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Level0" parent="." instance=ExtResource( 2 )]
+
+[node name="GridDrawer" parent="." instance=ExtResource( 3 )]
+update_overlay = false
+grid_size = 2
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+margin_left = -15.0734
+margin_top = -10.5514
+margin_right = 983.927
+margin_bottom = 655.449
+color = Color( 0.239216, 0.0431373, 0.0431373, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
+playback_speed = 2.0
+anims/hud_death = SubResource( 1 )
+
+[node name="Label" type="Label" parent="HUD"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 174.852
+margin_top = 284.887
+margin_right = 777.852
+margin_bottom = 384.887
+custom_fonts/font = SubResource( 2 )
+text = "YOU DIED."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -16.0
+autoplay = true

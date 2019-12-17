@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/assets/light.png" type="Texture" id=1]
+[ext_resource path="res://ui/assets/spot.png" type="Texture" id=2]
+
+
+
+
+
+[node name="light_0" type="Light2D"]
+texture = ExtResource( 1 )
+texture_scale = 0.5
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )

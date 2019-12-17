@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://menus/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://ui/assets/dunkel.png" type="Texture" id=2]
+[ext_resource path="res://ui/assets/play_button.png" type="Texture" id=3]
+[ext_resource path="res://ui/assets/play_button_pressed.png" type="Texture" id=4]
+[ext_resource path="res://ui/assets/quit_button.png" type="Texture" id=5]
+[ext_resource path="res://ui/assets/quit_button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://ui/assets/finger.png" type="Texture" id=7]
+[ext_resource path="res://scenes/common/sounds/Cute_Swipe 01.wav" type="AudioStream" id=8]
+[ext_resource path="res://scenes/common/sounds/Confirm_02.wav" type="AudioStream" id=9]
+[ext_resource path="res://scenes/common/sounds/Cute_Error_02.wav" type="AudioStream" id=10]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bg" type="TextureRect" parent="."]
+margin_left = 0.507233
+margin_right = 960.507
+margin_bottom = 640.0
+texture = ExtResource( 2 )
+
+[node name="new_game_button" type="TextureButton" parent="."]
+margin_left = 300.0
+margin_top = 410.0
+margin_right = 633.0
+margin_bottom = 486.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="quit_button" type="TextureButton" parent="."]
+margin_left = 300.0
+margin_top = 505.0
+margin_right = 633.0
+margin_bottom = 581.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+
+[node name="pointer_new_game" type="TextureRect" parent="."]
+margin_left = 235.0
+margin_top = 427.0
+margin_right = 288.0
+margin_bottom = 467.0
+texture = ExtResource( 7 )
+
+[node name="pointer_quit" type="TextureRect" parent="."]
+visible = false
+margin_left = 234.0
+margin_top = 520.0
+margin_right = 287.0
+margin_bottom = 560.0
+texture = ExtResource( 7 )
+
+[node name="pointer_blink_timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="swipe_sound_fx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="select_sound_fx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+
+[node name="error_sound_fx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+[connection signal="timeout" from="pointer_blink_timer" to="." method="_on_pointer_blink_timer_timeout"]

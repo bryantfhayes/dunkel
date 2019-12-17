@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dialog_first_king_interaction_3.wav-05dc2f8e42abbd3e772c3615236be9e1.sample"
+
+[deps]
+
+source_file="res://scenes/common/sounds/dialog/dialog_first_king_interaction_3.wav"
+dest_files=[ "res://.import/dialog_first_king_interaction_3.wav-05dc2f8e42abbd3e772c3615236be9e1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

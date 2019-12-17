@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dialog_intro_message_1.wav-8f233967073ac9a57ae16eab5869bf21.sample"
+
+[deps]
+
+source_file="res://scenes/common/sounds/dialog/dialog_intro_message_1.wav"
+dest_files=[ "res://.import/dialog_intro_message_1.wav-8f233967073ac9a57ae16eab5869bf21.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

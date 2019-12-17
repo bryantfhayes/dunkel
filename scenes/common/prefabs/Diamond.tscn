@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/assets/Big Diamond Idle (18x14).png" type="Texture" id=1]
+[ext_resource path="res://scenes/common/prefabs/Diamond.gd" type="Script" id=2]
+[ext_resource path="res://scenes/common/sounds/Coins_01.wav" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "floating_diamond"
+length = 10.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 4.90223
+
+[node name="Diamond" type="Sprite"]
+position = Vector2( 0, 0.333333 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 0.216555 )
+hframes = 10
+script = ExtResource( 2 )
+id = "f71b5742-ee7c-48a3-ba26-7515ea34fa82"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 10.0
+anims/floating_diamond = SubResource( 1 )
+
+[node name="PickupArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2( 2.04361, -0.786003 )
+shape = SubResource( 2 )
+
+[node name="PickupSoundFx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -12.0
+[connection signal="body_entered" from="PickupArea" to="." method="_on_PickupArea_body_entered"]

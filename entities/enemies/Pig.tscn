@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://entities/enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/enemies/Pig.gd" type="Script" id=2]
+[ext_resource path="res://entities/assets/pig/Hit (34x28).png" type="Texture" id=3]
+[ext_resource path="res://entities/pig/death.tres" type="Animation" id=4]
+[ext_resource path="res://entities/pig/falling.tres" type="Animation" id=5]
+[ext_resource path="res://entities/pig/idle.tres" type="Animation" id=6]
+[ext_resource path="res://entities/pig/jumping.tres" type="Animation" id=7]
+[ext_resource path="res://entities/assets/pig/Run (34x28).png" type="Texture" id=8]
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.94652, 8.63151 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "hit"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+[sub_resource type="Animation" id=4]
+length = 6.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 13.5421, 11.8729 )
+
+[node name="Pig" instance=ExtResource( 1 )]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 3.01035, 5.04678 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+playback_speed = 7.0
+anims/death = ExtResource( 4 )
+anims/falling = ExtResource( 5 )
+anims/hit = SubResource( 2 )
+anims/idle = ExtResource( 6 )
+anims/jumping = ExtResource( 7 )
+anims/melee = SubResource( 3 )
+anims/running = SubResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="." index="5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 3.06506, 4.08675 )
+shape = SubResource( 5 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

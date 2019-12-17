@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Confirm_02.wav-53b35a8b8ed0e54fac3a1a4c115a1032.sample"
+
+[deps]
+
+source_file="res://scenes/common/sounds/Confirm_02.wav"
+dest_files=[ "res://.import/Confirm_02.wav-53b35a8b8ed0e54fac3a1a4c115a1032.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

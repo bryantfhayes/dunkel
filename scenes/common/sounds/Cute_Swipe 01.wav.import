@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cute_Swipe 01.wav-15f6e2ab9d9bf4686213e8f666e030af.sample"
+
+[deps]
+
+source_file="res://scenes/common/sounds/Cute_Swipe 01.wav"
+dest_files=[ "res://.import/Cute_Swipe 01.wav-15f6e2ab9d9bf4686213e8f666e030af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

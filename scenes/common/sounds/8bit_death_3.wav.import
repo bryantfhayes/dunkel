@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8bit_death_3.wav-82792e60711ac9b9fd326cca3f4f7dfc.sample"
+
+[deps]
+
+source_file="res://scenes/common/sounds/8bit_death_3.wav"
+dest_files=[ "res://.import/8bit_death_3.wav-82792e60711ac9b9fd326cca3f4f7dfc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
