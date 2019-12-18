@@ -49,27 +49,24 @@ position = Vector2( 439.765, 379.355 )
 
 [node name="Diamond" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 145.766, 527.12 )
-offset = Vector2( 0, 0.972156 )
-frame = 2
+offset = Vector2( 0, -0.95167 )
+frame = 7
 id = "7c18a6c0-3b81-47cb-b411-b7e6c92facb2"
+single_use = true
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 178.255, 527.12 )
-offset = Vector2( 0, 0.972156 )
-frame = 2
+offset = Vector2( 0, -0.95167 )
+frame = 7
 id = "3ec815d9-5285-45d9-803f-ee4930a4a4c4"
+single_use = true
 
 [node name="Diamond3" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 210.744, 526.822 )
-offset = Vector2( 0, 0.972156 )
-frame = 2
+offset = Vector2( 0, -0.95167 )
+frame = 7
 id = "795234ed-e29e-4dbf-b2af-6fa5630a29f6"
-
-[node name="Diamond4" parent="Diamonds" instance=ExtResource( 6 )]
-position = Vector2( 302.549, 468.103 )
-offset = Vector2( 0, 0.972156 )
-frame = 2
-id = "38f2e790-77e7-43f5-ac44-061e71764102"
+single_use = true
 
 [node name="JumpPig" parent="." instance=ExtResource( 7 )]
 position = Vector2( 259.925, 528.908 )

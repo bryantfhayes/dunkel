@@ -52,7 +52,7 @@ locked = true
 
 [node name="Door3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 894, 516 )
-id = 7
+id = 99
 locked = true
 
 [node name="darkness" type="CanvasModulate" parent="."]
@@ -66,27 +66,31 @@ position = Vector2( 672.397, 854.672 )
 
 [node name="Diamond" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 337.747, 1073.74 )
-offset = Vector2( 0, 0.159297 )
+offset = Vector2( 0, 0.00559616 )
 frame = 9
 id = "a1d080ea-86bf-47e3-93be-b3a47faf580f"
+single_use = true
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 356.948, 1074.13 )
-offset = Vector2( 0, 0.159297 )
+offset = Vector2( 0, 0.00559616 )
 frame = 9
 id = "a8594bb6-2984-475a-9953-f6ace1ba18cc"
+single_use = true
 
 [node name="Diamond3" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 378.453, 1073.36 )
-offset = Vector2( 0, 0.159297 )
+offset = Vector2( 0, 0.00559616 )
 frame = 9
 id = "49b74b5f-b0ad-49c8-85ce-a6ffd1c492da"
+single_use = true
 
 [node name="Diamond4" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 396.118, 1073.74 )
-offset = Vector2( 0, 0.159297 )
+offset = Vector2( 0, 0.00559616 )
 frame = 9
 id = "174443ef-9c7a-4281-8759-a2d5f13b7651"
+single_use = true
 
 [node name="PigKing" parent="." instance=ExtResource( 7 )]
 position = Vector2( 840.501, 525.461 )

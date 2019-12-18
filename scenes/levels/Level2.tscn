@@ -51,9 +51,10 @@ position = Vector2( 669.941, 416.511 )
 
 [node name="Diamond" parent="Diamonds" instance=ExtResource( 6 )]
 position = Vector2( 398.79, 402.543 )
-offset = Vector2( 0, 0.0107796 )
-frame = 9
+offset = Vector2( 0, -0.933698 )
+frame = 7
 id = "cbf9f086-6f75-41c5-b745-46df95919e51"
+single_use = true
 
 [node name="Pig" parent="." instance=ExtResource( 7 )]
 position = Vector2( 540.246, 529.054 )
